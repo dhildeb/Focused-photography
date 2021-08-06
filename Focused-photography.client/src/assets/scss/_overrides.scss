@@ -1,0 +1,20 @@
+.btn-primary {
+  color: $light;
+  background-color: $primary;
+  border-color: darken($color: $primary, $amount: 10);
+  border-width: medium;
+}
+.btn-secondary {
+  color: $light;
+  background-color: $teal;
+  border-color: darken($color: $teal, $amount: 10);
+  border-width: medium;
+}
+.btn-secondary:hover{
+  background-color: darken($color: $teal, $amount: 10);
+  border-color: darken($color: $teal, $amount: 20);
+}
+.btn-secondary:active{
+  background-color: darken($color: $teal, $amount: 10);
+  border-color: darken($color: $teal, $amount: 20);
+}

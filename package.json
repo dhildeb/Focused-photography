@@ -1,0 +1,13 @@
+{
+  "name": "focused-photography",
+  "version": "1.0.0",
+  "scripts": {
+    "setup:app": "npm run setup:client && npm run setup:server",
+    "setup:client": "cd Focused-photography.client && npm i",
+    "setup:server": "cd Focused-photography && npm i",
+    "start": "node Focused-photography.server/index.js"
+  },
+  "engines": {
+    "node": "^14.17.0"
+  }
+}

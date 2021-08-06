@@ -1,0 +1,286 @@
+@import "./_variables.scss";
+@import "bootstrap";
+@import "./_transitions.scss";
+@import "./_overrides.scss";
+
+:root{
+  --focus-yellow: rgb(255 199 44);
+  --coral: rgb(255 141 109);
+  --teal: rgb(127 169 174);
+  --mint: rgb(160 209 202);
+  --pink: rgb(234 190 176);
+  --warm-gray: rgb(214 210 196);
+  --focus-dark: rgb(83 86 90);
+  --cool-gray: rgb(217 217 214);
+  --focus-black: rgb(85 81 80);
+  
+}
+
+body{
+  overflow-x: hidden;
+}
+
+// @font-face {
+//   font-family: 'city_streetwearlight';
+//   src: url('/fonts/citystreetwear-light-webfont.woff2') format('woff2'),
+//   url('/fonts/citystreetwear-light-webfont.woff') format('woff');
+  
+// }
+// .city-font{
+//   font-family: 'city_streetwearlight';
+//   font-size: 6em;
+// }
+
+// @font-face {
+//   font-family: 'myriad-pro-B';
+//   src: url('/fonts/MyriadPro-Bold.woff') format('woff');
+
+// }
+
+// .pro-B-font{
+//   font-family: 'myriad-pro-B';
+// }
+// @font-face {
+//   font-family: 'myriad-pro';
+//   src: url('/fonts/MyriadPro-Regular.woff') format('woff');
+
+// }
+// .pro-font{
+//   font-family: 'myriad-pro';
+// }
+
+// @font-face {
+//   font-family: 'neutra-text';
+//   src: url('/fonts/neutratext-light.woff') format('woff');
+
+// }
+// .neutra-font{
+//   font-family: 'neutra-text';
+// }
+
+
+//   .dandilion-img{
+//     background-image: url("/img/image.jpg");
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     height: 460px;
+//   }
+//   .self-img{
+//     position: absolute;
+//     background-image: url("/img/self.jpg");
+//     background-position: bottom;
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     width: 800px;
+//     height: 500px;
+//   }
+// .bird{
+//   background-image: url("/img/bird.jpg");
+//   background-size: cover;
+//   background-repeat: no-repeat;
+//   height: 1140px;
+// }
+.border-transparent{
+  border: transparent;
+}
+
+a{
+  color: var(--focus-black);
+}
+a:hover{
+  color: var(--focus-black);
+  text-decoration: none;
+}
+.circle{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.text-yellow{
+  color: var(--focus-yellow);
+}
+.text-coral{
+  color: var(--coral);
+}
+.text-teal{
+  color: var(--teal);
+}
+.text-mint{
+  color: var(--mint);
+}
+.text-pink{
+  color: var(--pink);
+}
+.text-warm-gray{
+  color: var(--warm-gray);
+}
+.text-focus-dark{
+  color: var(--focus-dark);
+}
+.text-cool-gray{
+  color: var(--cool-gray);
+}
+.text-focus-black{
+  color: var(--focus-black);
+}
+.bg-yellow{
+  background-color: var(--focus-yellow);
+}
+.bg-coral{
+  background-color: var(--coral);
+}
+.bg-teal{
+  background-color: var(--teal);
+}
+.bg-mint{
+  background-color: var(--mint);
+}
+.bg-pink{
+  background-color: var(--pink);
+}
+.bg-warm-gray{
+  background-color: var(--warm-gray);
+}
+.bg-focus-dark{
+  background-color: var(--focus-dark);
+}
+.bg-cool-gray{
+  background-color: var(--cool-gray);
+}
+.bg-focus-black{
+  background-color: var(--focus-black);
+}
+
+.border-yellow{
+  border-color: var(--focus-yellow);
+  border-radius: 35%;
+  border-width: 2px;
+}
+.border-coral{
+  border-color: var(--coral);
+  border-radius: 35%;
+  border-width: 2px;
+}
+.border-teal{
+  border-color: var(--teal);
+  border-radius: 35%;
+  border-width: 2px;
+}
+.border-mint{
+  border-color: var(--mint);
+  border-radius: 35%;
+  border-width: 2px;
+}
+.border-pink{
+  border-color: var(--pink);
+  border-radius: 35%;
+  border-width: 2px;
+}
+.border-warm-gray{
+  border-color: var(--warm-gray);
+  border-radius: 35%;
+  border-width: 2px;
+}
+.border-focus-dark{
+  border-color: var(--focus-dark);
+  border-radius: 35%;
+  border-width: 2px;
+}
+.border-cool-gray{
+  border-color: var(--cool-gray);
+  border-radius: 35%;
+  border-width: 2px;
+}
+.border-focus-black{
+  border-color: var(--focus-black);
+  border-radius: 35%;
+  border-width: 2px;
+}
+.border-bottom-dark{
+  border-bottom: 2px solid var(--focus-dark);
+}
+
+.header-border{
+  border-top: 4px solid var(--focus-yellow);
+}
+
+.header-gray-border{
+  background-color: var(--teal);
+  height: 25px
+}
+
+.logo{
+  position: absolute;
+  top: -30px;
+}
+
+.footer{
+  background-color: var(--warm-gray);
+  height: 80px;
+  color: var(--focus-black);
+}
+
+
+// about page slide FIXME
+ .slide-bag {
+  animation: slide-left 2s forwards;
+}
+.slide-jen {
+  animation: slide-right 2s forwards;
+}
+ .slide-self-right{
+  animation: slide-self-right 2s forwards;
+}
+
+.slide-self-left{
+  animation: slide-self-left 2s .25s forwards;
+
+}
+
+@keyframes slide-left {
+  from { 
+    margin-left: -2000px;
+   }
+   to {
+    margin-left: -800px;
+}
+}
+@keyframes slide-right {
+  from { 
+    margin-left: 2000px;
+   }
+   to {
+    margin-left: 800px;
+}
+}
+ @keyframes slide-self-left {
+  from { 
+    margin-left: 0px;
+   }
+   to {
+    margin-right: 400px;
+}
+}
+ @keyframes slide-self-right {
+  from { 
+    margin-left: 0px;
+   }
+   to {
+    margin-left: 400px;
+}
+} 
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: $body-bg;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  align-items: stretch;
+}
