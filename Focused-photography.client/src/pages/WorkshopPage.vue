@@ -2,14 +2,14 @@
   <!-- about workshop -->
 
   <div class="container my-5">
-    <div class="row p-5">
-      <div class="col-12 text-right p-5">
-        <h1 class="city-font position-absolute">
-          about
-        </h1>
-        <h2 class="pro-B-font">
+    <div class="row p-5 t-lg">
+      <p class="city-font position-absolute position-absolute p-3">
+        about
+      </p>
+      <div class="col-12 text-left p-5">
+        <p class="pro-B-font">
           THE WORKSHOP
-        </h2>
+        </p>
       </div>
     </div>
 
@@ -24,14 +24,14 @@
       </div>
     </div>
 
-    <div class="row p-5">
+    <div class="row p-5 t-lg">
+      <p class="city-font position-absolute p-3">
+        what
+      </p>
       <div class="col-12 text-left pt-5">
-        <h1 class="city-font position-absolute">
-          what
-        </h1>
-        <h2 class="pro-B-font">
+        <p class="pro-B-font">
           TO EXPECT
-        </h2>
+        </p>
       </div>
     </div>
 
@@ -71,14 +71,14 @@
   </div>
   <!-- why it works -->
   <div class="container">
-    <div class="row p-5">
-      <div class="col-12 text-right pt-5">
-        <h1 class="city-font position-absolute">
-          why
-        </h1>
-        <h2 class="pro-B-font">
+    <div class="row p-5 t-lg">
+      <p class="city-font position-absolute p-3">
+        why
+      </p>
+      <div class="col-12 text-left pt-5">
+        <p class="pro-B-font">
           IT WORKS
-        </h2>
+        </p>
       </div>
     </div>
     <div class="row pb-5 text-center">
@@ -108,14 +108,14 @@
   </div>
   <!-- why subscribe -->
   <div class="container-fluid py-5">
-    <div class="row text-center p-5">
+    <div class="row text-center p-5 t-lg">
+      <p class="position-absolute city-font p-3">
+        why
+      </p>
       <div class="col-12 p-5">
-        <h1 class="position-absolute city-font">
-          why
-        </h1>
-        <h2 class="pro-B-font">
+        <p class="pro-B-font text-left">
           SUBSCRIBE?
-        </h2>
+        </p>
       </div>
     </div>
 
@@ -168,7 +168,7 @@
   <!-- FAQ -->
   <div class="container">
     <div class="row justify-content-center pb-3">
-      <h1>Lorem, ipsum dolor.</h1>
+      <p>Lorem, ipsum dolor.</p>
     </div>
     <div class="row pb-5">
       <li class="p-2">
