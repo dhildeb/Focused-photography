@@ -2,10 +2,10 @@
   <div class="row py-5 justify-content-end neutra-font d-none d-lg-flex">
     <div class="col-4">
       <router-link :to="{ name: 'Home' }" title="Home Page">
-        <img src="../assets/img/logo.jpg" class="logo bg-white px-2" alt="Focused logo">
+        <img src="../assets/img/logo.jpg" class="logo bg-white px-2 ml-5" alt="Focused logo">
       </router-link>
     </div>
-    <div class="col btn-group">
+    <div class="col align-self-center btn-group">
       <span type="button"
             class="btn btn-white text-teal"
             data-toggle="dropdown"
@@ -15,11 +15,11 @@
         ABOUT
       </span>
       <div class="dropdown-menu">
-        <router-link :to="{name: 'About'}" :class="state.view === 'aboutWorkshop' ? 'text-yellow dropdown-item' : 'dropdown-item text-teal'" @click="changeView('aboutWorkshop')">
+        <router-link :to="{name: 'Workshop'}" class="dropdown-item text-teal">
           ABOUT WORKSHOP
         </router-link>
         <div class="dropdown-divider"></div>
-        <router-link :to="{name: 'About'}" :class="state.view === 'jen' ? 'text-yellow dropdown-item' : 'dropdown-item text-teal'" @click="changeView('jen')">
+        <router-link :to="{name: 'Jen'}" class="dropdown-item text-teal">
           ABOUT JENIFER
         </router-link>
       </div>
@@ -43,8 +43,7 @@
       <router-link class="text-teal" :to="{name: 'Account'}" v-if="!state.account.id">
         SIGN UP/SIGN IN
       </router-link>
-      <router-link class="text-teal dropdown-item" :to="{name: 'Lessons'}">
-        <!-- v-if="state.account.id"> -->
+      <router-link class="text-teal dropdown-item" :to="{name: 'Lessons'}" v-else>
         MY LESSONS
       </router-link>
     </div>
@@ -55,7 +54,7 @@
   <div class="row py-5 justify-content-end neutra-font d-lg-none">
     <div class="col">
       <router-link :to="{ name: 'Home' }" title="Home Page">
-        <img src="../assets/img/logo.jpg" class="logo bg-white px-2" alt="Focused logo">
+        <img src="../assets/img/logo.jpg" class="logo bg-white px-2 ml-5" alt="Focused logo">
       </router-link>
     </div>
     <div class="col"></div>
@@ -69,11 +68,11 @@
         <i class="fa fa-bars fa-2x" title="Options"></i>
       </span>
       <div class="dropdown-menu text-center">
-        <router-link :to="{name: 'About'}" class="dropdown-item text-teal">
+        <router-link :to="{name: 'Workshop'}" class="dropdown-item text-teal">
           ABOUT WORKSHOP
         </router-link>
         <div class="dropdown-divider"></div>
-        <router-link :to="{name: 'About'}" class="dropdown-item text-teal">
+        <router-link :to="{name: 'Jen'}" class="dropdown-item text-teal">
           ABOUT JENIFER
         </router-link>
         <div class="dropdown-divider"></div>
@@ -113,12 +112,10 @@
 import { reactive } from '@vue/reactivity'
 import { AppState } from '../AppState'
 import { computed } from '@vue/runtime-core'
-import { useRoute } from 'vue-router'
 import { AuthService } from '../services/AuthService'
 
 export default {
   setup() {
-    const route = useRoute()
     const state = reactive({
       account: computed(() => AppState.account),
       view: computed(() => AppState.viewPort)
@@ -127,10 +124,6 @@ export default {
       state,
       async login() {
         AuthService.loginWithPopup()
-      },
-      route,
-      changeView(port) {
-        AppState.viewPort = port
       }
     }
   }

@@ -41,6 +41,7 @@
 <script>
 import { reactive } from '@vue/reactivity'
 export default {
+  name: 'Jen',
   setup() {
     const state = reactive({
 

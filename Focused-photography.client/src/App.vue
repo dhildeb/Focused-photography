@@ -26,6 +26,10 @@ export default {
 </script>
 <style lang="scss">
 @import "./assets/scss/main.scss";
+*{
+  outline: red 1px solid;
+}
+
 body::-webkit-scrollbar {
   width: 1em;
 }

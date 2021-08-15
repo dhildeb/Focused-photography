@@ -201,6 +201,7 @@
 <script>
 import { reactive } from '@vue/reactivity'
 export default {
+  name: 'Workshop',
   setup() {
     const state = reactive({
       // dandilion: '../assets/img/image.jpg'
