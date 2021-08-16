@@ -48,12 +48,18 @@ const routes = [
     component: loadPage('LessonDetailPage')
     // beforeEnter: authGuard
   }
-
 ]
 
 export const router = createRouter({
   linkActiveClass: 'router-link-active',
   linkExactActiveClass: 'router-link-exact-active',
   history: createWebHashHistory(),
-  routes
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      window.scrollTo({ top: savedPosition.top, behavior: 'smooth' })
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
 })
