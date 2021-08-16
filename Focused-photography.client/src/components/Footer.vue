@@ -10,13 +10,13 @@
     </div>
 
     <div class="row justify-content-center align-content-center text-center mb-5">
-      <div class="col-2">
+      <div class="col-2 align-self-center">
         <input type="text" class="form-control" placeholder="First name">
       </div>
-      <div class="col-2">
+      <div class="col-2 align-self-center">
         <input type="text" class="form-control" placeholder="Last name">
       </div>
-      <div class="col-2">
+      <div class="col-2 align-self-center">
         <input type="text" class="form-control" placeholder="Email">
       </div>
       <div class="col-2">
@@ -52,6 +52,6 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>

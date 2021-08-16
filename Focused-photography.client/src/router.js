@@ -41,13 +41,13 @@ const routes = [
     name: 'Lessons',
     component: loadPage('LessonsPage')
     // beforeEnter: authGuard
+  },
+  {
+    path: '/lessons/:name',
+    name: 'LessonDetail',
+    component: loadPage('LessonDetailPage')
+    // beforeEnter: authGuard
   }
-  // {
-  //   path: '/lessons/{name}',
-  //   name: 'LessonDetail',
-  //   component: loadPage('LessonDetailPage')
-  //   // beforeEnter: authGuard
-  // }
 
 ]
 

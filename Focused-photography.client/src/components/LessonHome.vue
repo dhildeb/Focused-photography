@@ -9,7 +9,7 @@
   <header class="row bg-warm-gray p-4">
     <div class="col-md-2"></div>
     <div class="col-lg-1 col-md-2 col-3">
-      <!-- REVIEW sceoll to top? -->
+      <!-- REVIEW scroll to top? -->
       <a @click="state.viewport = 'Home'">
         <h4>Home</h4>
       </a>
@@ -35,7 +35,7 @@
 
   <div class="container py-5">
     <div class="row justify-content-center align-content-center text-center text-focus-dark pt-5">
-      <LessonDetail />
+      <LessonDetail v-for="lessonImg in state.lessonImg" :key="lessonImg" :lesson-img="lessonImg" />
     </div>
     <!-- reference -->
     <!-- <div class="row justify-content-center align-content-center text-center py-3">
@@ -46,10 +46,14 @@
 
 <script>
 import { reactive } from '@vue/reactivity'
+import { computed } from '@vue/runtime-core'
+import { AppState } from '../AppState'
+import { useRoute } from 'vue-router'
 export default {
   setup() {
+    const route = useRoute()
     const state = reactive({
-
+      lessonImg: computed(() => AppState.lessonPics[route.params.name])
     })
     return {
       state

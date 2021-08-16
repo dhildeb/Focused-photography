@@ -1,17 +1,20 @@
 <template>
-  <div class="col-4">
-    <div class="card bg-cool-gray text-white p-1">
-      <h4>Month {{ state.month + 1 }}</h4>
-      <span>{{ list.lessonName }}</span>
-    </div>
-  </div>
+  <div class="col-4 pb-3">
+    <div class="row flex-column p-1">
+      <div class="card bg-cool-gray text-white p-1">
+        <p class="t-md">
+          Month {{ state.month + 1 }}
+        </p>
+        <span>{{ list }}</span>
+      </div>
 
-  <div class="row justify-content-center align-content-center text-center py-3">
-    <div class="col-4">
-      <!-- params lesson name vvvvvvv TODO-->
-      <router-link :to="list.lessonName">
-        <img :src="getImgUrl(state.list)" alt="" class="img-fluid">
-      </router-link>
+      <div class="col p-0">
+        <!-- params lesson name vvvvvvv TODO-->
+        <router-link :to="{name:'LessonDetail', params: {name: list}}">
+          <!-- <img :src="getImgUrl(state.list)" alt="" class="img-fluid"> -->
+          <img class="img-fluid" src="https://source.unsplash.com/random" alt="">
+        </router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -39,6 +42,6 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>
