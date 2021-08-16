@@ -1,5 +1,5 @@
 <template>
-  <div class="row py-5 justify-content-end neutra-font d-none d-lg-flex">
+  <div class="row py-5 justify-content-end neutra-font d-none d-lg-flex bg-white">
     <div class="col-4">
       <router-link :to="{ name: 'Home' }" title="Home Page">
         <img src="../assets/img/logo.jpg" class="logo bg-white px-2 ml-5" alt="Focused logo">
@@ -51,7 +51,7 @@
     </div>
   </div>
 
-  <div class="row py-5 justify-content-end neutra-font d-lg-none">
+  <div class="row py-5 justify-content-end neutra-font d-lg-none bg-white">
     <div class="col">
       <router-link :to="{ name: 'Home' }" title="Home Page">
         <img src="../assets/img/logo.jpg" class="logo bg-white px-2 ml-5" alt="Focused logo">

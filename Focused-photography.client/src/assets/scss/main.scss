@@ -80,9 +80,14 @@ body{
 //   background-repeat: no-repeat;
 //   height: 1140px;
 // }
-
+.click{
+  cursor: pointer;
+}
 .t-lg{
   font-size: xx-large;
+}
+.t-xl{
+  font-size: x-large;
 }
 .t-md{
   font-size: large;
