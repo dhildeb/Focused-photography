@@ -1,15 +1,11 @@
 <template>
   <!-- header -->
-  <div class="row py-5 justify-content-end">
-    <div class="col-10">
-      <div class="row">
-        <h1 class="city-font position-absolute" style="top: -65px;">
-          enrollment
-        </h1>
-      </div>
-      <div class="row px-4 pro-B-font">
-        <h2>OPTIONS</h2>
-      </div>
+  <div class="row p-5 t-lg">
+    <p class="city-font position-absolute p-3">
+      enrollment
+    </p>
+    <div class="col-12 text-left pro-B-font p-5">
+      <p>OPTIONS</p>
     </div>
   </div>
 

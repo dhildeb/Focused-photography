@@ -1,29 +1,32 @@
 <template>
   <!-- jen -->
   <div class="container-fluid my-5">
-    <div class="row justify-content-center bg-white" style="height:500px;">
-      <div id="bag" class="col-4 d-none">
-        <!-- <img class="img-fluid" src="/img/8.jpg" alt="" style="height:500px;"> -->
+    <div class="row justify-content-center bg-white">
+      <div :class="state.bag ? 'col-4' : 'col-4 d-none'">
+        <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/focused-47421.appspot.com/o/static%20images%2F8.jpg?alt=media&token=3f9793dc-d6f5-48ff-90e4-8f523be45183" alt="camera bag">
       </div>
-      <div id="self" class="col-4 self-img d-flex flex-column flex-wrap align-content-between">
+      <div class="col-4 self-img d-flex flex-column flex-wrap align-content-between">
         <div class="row">
-          <button id="bagButton" class="col-6 text-left bg-transparent border-transparent slide" onclick="showBag()">
-            <h1 class="">
+          <button class="col-6 text-left" @click="state.bag=!state.bag, state.jen=false">
+            <p class="t-lg">
               Whats In My Bag
-            </h1>
+            </p>
           </button>
-          <button id="jenButton" class="col-6 text-right bg-transparent border-transparent slide" onclick="showJen()">
-            <h1 class="city-font position-absolute" style="top: -30px;left: 4px;">
+          <button class="col-6 text-right" @click="state.jen=!state.jen, state.bag=false">
+            <p class="city-font position-absolute t-lg">
               about
-            </h1>
-            <h1 class="pro-B-font">
+            </p>
+            <p class="pro-B-font t-lg">
               JENNIFER
-            </h1>
+            </p>
           </button>
         </div>
+        <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/focused-47421.appspot.com/o/static%20images%2Fself.jpg?alt=media&token=4847c646-8bb2-4ce9-a873-d8c0c5ebfeb7" alt="jen">
       </div>
-      <div id="jen" class="col-4 d-none">
-        <h1>About Jenifer</h1>
+      <div :class="state.jen ? 'col-4' : 'col-4 d-none'">
+        <p class="t-lg">
+          About Jenifer
+        </p>
         <p>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur neque natus tempora delectus quas
           voluptatum ducimus minus assumenda error, ullam eveniet deleniti perspiciatis dolores? Pariatur aspernatur qui
@@ -34,7 +37,7 @@
       </div>
     </div>
 
-    <div class="row bg-pink" style="height:60px;"></div>
+    <div class="row bg-pink"></div>
   </div>
 </template>
 
@@ -44,7 +47,8 @@ export default {
   name: 'Jen',
   setup() {
     const state = reactive({
-
+      jen: false,
+      bag: false
     })
     return {
       state
@@ -53,6 +57,11 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.bg-pink{
+  height:60px;
+}
+.d-none{
+  transition: all 1s linear;
+}
 </style>

@@ -3,7 +3,7 @@
 
   <div class="container my-5">
     <div class="row p-5 t-lg">
-      <p class="city-font position-absolute position-absolute p-3">
+      <p class="city-font position-absolute p-3">
         about
       </p>
       <div class="col-12 text-left p-5">
@@ -17,8 +17,11 @@
       <div class="embed-responsive embed-responsive-16by9">
         <video title="About Workshop Video">
           <!-- autoplay TODO-->
-          <source src=""
+          <source src="https://firebasestorage.googleapis.com/v0/b/focused-47421.appspot.com/o/static%20images%2FFocus-Photography-Workshop-V3.mp4?alt=media&token=2b8eb88a-b8f5-4e31-9e14-b116ebe64b5c"
                   title="About Workshop Video"
+                  autoPlay
+                  controls="controls"
+                  @click="play()"
           >
         </video>
       </div>
@@ -63,10 +66,10 @@
     </div>
   </div>
   <!-- img -->
-  <div class="container-fluid" :style="{'background-image': 'url('+state.dandilion+')'}">
+  <div class="container-fluid dandilion" :style="{'background-image': 'url('+state.dandilion+')'}">
     <div class="row">
       <div class="col-2"></div>
-      <!-- <img src="../assets/img/quote.png" style="height: 480px;" alt=""> -->
+      <img src="https://firebasestorage.googleapis.com/v0/b/focused-47421.appspot.com/o/static%20images%2Fquote.png?alt=media&token=dc2440e2-4c9b-43a4-a0c6-519f42c279f2" style="height: 480px;" alt="quote">
     </div>
   </div>
   <!-- why it works -->
@@ -93,16 +96,16 @@
     </div>
     <div class="row p-5 justify-content-around">
       <div class="col-3 p-2">
-        <img src="//placehold.it/240x120" alt="">
+        <img src="https://source.unsplash.com/random/240x120" alt="img">
       </div>
       <div class="col-3 p-2">
-        <img src="//placehold.it/240x120" alt="">
+        <img src="https://source.unsplash.com/random/240x120" alt="img">
       </div>
       <div class="col-3 p-2">
-        <img src="//placehold.it/240x120" alt="">
+        <img src="https://source.unsplash.com/random/240x120" alt="img">
       </div>
       <div class="col-3 p-2">
-        <img src="//placehold.it/240x120" alt="">
+        <img src="https://source.unsplash.com/random/240x120" alt="img">
       </div>
     </div>
   </div>
@@ -204,7 +207,7 @@ export default {
   name: 'Workshop',
   setup() {
     const state = reactive({
-      // dandilion: '../assets/img/image.jpg'
+      dandilion: 'https://firebasestorage.googleapis.com/v0/b/focused-47421.appspot.com/o/static%20images%2Fimage.jpg?alt=media&token=9543cfde-de4f-49d0-a31c-f490df785748'
     })
     return {
       state
