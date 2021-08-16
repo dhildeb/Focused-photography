@@ -1,18 +1,16 @@
 <template>
-  <div class="col-4 pb-3">
-    <div class="row flex-column p-1">
-      <div class="card bg-cool-gray text-white p-1">
-        <p class="t-md">
+  <div class="col-4 pb-3" :title="list">
+    <div class="row flex-column p-4">
+      <div class="lesson-title rounded-xl bg-cool-gray text-white mb-3 p-1">
+        <p class="t-lg m-0">
           Month {{ state.month + 1 }}
         </p>
         <span>{{ list }}</span>
       </div>
 
       <div class="col p-0">
-        <!-- params lesson name vvvvvvv TODO-->
         <router-link :to="{name:'LessonDetail', params: {name: list}}">
-          <!-- <img :src="getImgUrl(state.list)" alt="" class="img-fluid"> -->
-          <img class="img-fluid" src="https://source.unsplash.com/random" alt="">
+          <img class="img-fluid" :src="state.coverPic[state.month]" :alt="list">
         </router-link>
       </div>
     </div>
@@ -30,18 +28,18 @@ export default {
   setup(props) {
     const state = reactive({
       list: computed(() => AppState.lessonName),
-      month: AppState.lessonName.findIndex(l => l === props.list)
+      month: AppState.lessonName.findIndex(l => l === props.list),
+      coverPic: AppState.lessonCover
     })
     return {
-      state,
-      getImgUrl(name) {
-        return require('../assets/img/month' + name + '.jpg')
-      }
+      state
     }
   }
 }
 </script>
 
 <style scoped>
-
+.rounded-xl{
+  border-radius: 1rem;
+}
 </style>
