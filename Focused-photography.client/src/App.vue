@@ -27,9 +27,9 @@ export default {
 </script>
 <style lang="scss">
 @import "./assets/scss/main.scss";
-// *{
-//   outline: red 1px solid;
-// }
+*{
+  outline: red 1px solid;
+}
 
 body::-webkit-scrollbar {
   width: 1em;
@@ -45,5 +45,44 @@ body::-webkit-scrollbar-thumb {
 }
 body{
   user-select: none;
+}
+@font-face {
+  font-family: 'city_streetwearlight';
+  src: local('city_streetwearlight'),
+  url('./assets/fonts/citystreetwear-light-webfont.woff') format('woff');
+}
+.city-font{
+  font-family: 'city_streetwearlight';
+  font-size: 60pt;
+}
+
+@font-face {
+  font-family: 'myriad-pro-B';
+  src: local('myriad-pro-B'),
+  url('./assets/fonts/MyriadPro-Bold.woff') format('woff');
+}
+.pro-B-font{
+  font-family: 'myriad-pro-B';
+  font-size: 12pt;
+}
+
+@font-face {
+  font-family: 'myriad-pro';
+  src: local('myriad-pro'),
+  url('./assets/fonts/MyriadPro-Regular.woff') format('woff');
+}
+.pro-font{
+  font-family: 'myriad-pro';
+  font-size: 12pt;
+}
+
+@font-face {
+  font-family: 'neutra-text';
+  src: local('neutra-text'),
+  url('./assets/fonts/neutratext-light.woff') format('woff');
+}
+.neutra-font{
+  font-family: 'neutra-text';
+  font-size: 12pt;
 }
 </style>

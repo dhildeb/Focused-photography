@@ -2,12 +2,12 @@
   <!-- about workshop -->
 
   <div class="container my-5">
-    <div class="row p-5 t-lg">
-      <p class="city-font position-absolute p-3">
+    <div class="row p-5 justify-content-end">
+      <p class="city-font position-absolute p-3 m-about pr-5">
         about
       </p>
-      <div class="col-12 text-left p-5">
-        <p class="pro-B-font">
+      <div class="col-12 text-right p-0 mt-workshop">
+        <p class="pro-B-font t-xxl">
           THE WORKSHOP
         </p>
       </div>
@@ -28,11 +28,11 @@
     </div>
 
     <div class="row p-5 t-lg">
-      <p class="city-font position-absolute p-3">
+      <p class="city-font position-absolute p-0 pl-3">
         what
       </p>
-      <div class="col-12 text-left pt-5">
-        <p class="pro-B-font">
+      <div class="col-12 text-left pt-5 mt-3 ml-4">
+        <p class="pro-B-font t-xxl">
           TO EXPECT
         </p>
       </div>
@@ -74,18 +74,18 @@
   </div>
   <!-- why it works -->
   <div class="container">
-    <div class="row p-5 t-lg">
-      <p class="city-font position-absolute p-3">
+    <div class="row p-4 justify-content-end mr-5 pr-5">
+      <p class="city-font position-absolute p-3 mr-5 pr-5">
         why
       </p>
-      <div class="col-12 text-left pt-5">
-        <p class="pro-B-font">
+      <div class="col-12 text-right pt-5 mt-4">
+        <p class="pro-B-font t-xxl mt-1">
           IT WORKS
         </p>
       </div>
     </div>
     <div class="row pb-5 text-center">
-      <p>
+      <p class="double-space">
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa harum quidem optio vero rerum explicabo, quis
         maxime qui, fugiat totam alias consequuntur maiores deserunt eligendi tenetur. Tempora exercitationem dolorem
         quae?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente, nihil vel maxime vero nostrum qui,
@@ -96,27 +96,27 @@
     </div>
     <div class="row p-5 justify-content-around">
       <div class="col-3 p-2">
-        <img src="https://source.unsplash.com/random/240x120" alt="img">
+        <img class="img-fluid" src="https://source.unsplash.com/random/240x120" alt="img">
       </div>
       <div class="col-3 p-2">
-        <img src="https://source.unsplash.com/random/240x120" alt="img">
+        <img class="img-fluid" src="https://source.unsplash.com/random/240x120" alt="img">
       </div>
       <div class="col-3 p-2">
-        <img src="https://source.unsplash.com/random/240x120" alt="img">
+        <img class="img-fluid" src="https://source.unsplash.com/random/240x120" alt="img">
       </div>
       <div class="col-3 p-2">
-        <img src="https://source.unsplash.com/random/240x120" alt="img">
+        <img class="img-fluid" src="https://source.unsplash.com/random/240x120" alt="img">
       </div>
     </div>
   </div>
   <!-- why subscribe -->
   <div class="container-fluid py-5">
-    <div class="row text-center p-5 t-lg">
-      <p class="position-absolute city-font p-3">
+    <div class="row justify-content-center p-5">
+      <p class="position-absolute city-font p-3 m-why">
         why
       </p>
       <div class="col-12 p-5">
-        <p class="pro-B-font text-left">
+        <p class="pro-B-font text-center t-xxl mt-4">
           SUBSCRIBE?
         </p>
       </div>
@@ -221,5 +221,17 @@ export default {
 .dandilion{
   background-size: cover;
   background-repeat: no-repeat;
+}
+.m-about{
+  margin-right: 7.4rem;
+}
+.m-why{
+  margin-right: 10rem;
+}
+.mt-workshop{
+  margin-top: 5.1rem;
+}
+.double-space{
+  line-height: 2;
 }
 </style>

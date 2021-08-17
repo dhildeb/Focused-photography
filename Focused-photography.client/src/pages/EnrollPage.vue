@@ -1,12 +1,14 @@
 <template>
   <!-- header -->
   <div class="container-fluid bird" :style="{'background-image': 'url(https://firebasestorage.googleapis.com/v0/b/focused-47421.appspot.com/o/static%20images%2Fbird.jpg?alt=media&token=7bf256b3-1d6d-4b12-8fb3-e9df7c90071f)'}">
-    <div class="row p-5 t-lg">
-      <p class="city-font position-absolute p-3">
+    <div class="row p-5 ml-5">
+      <p class="city-font position-absolute pl-4">
         enrollment
       </p>
-      <div class="col-12 text-left pro-B-font p-5">
-        <p>OPTIONS</p>
+      <div class="col-12 text-left pro-B-font p-5 mt-3">
+        <p class="t-xxl">
+          OPTIONS
+        </p>
       </div>
     </div>
 

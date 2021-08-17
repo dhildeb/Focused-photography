@@ -13,81 +13,23 @@
   --focus-dark: rgb(83 86 90);
   --cool-gray: rgb(217 217 214);
   --focus-black: rgb(85 81 80);
-  
 }
 
 body{
   overflow-x: hidden;
 }
-
-// @font-face {
-//   font-family: 'city_streetwearlight';
-//   src: url('/fonts/citystreetwear-light-webfont.woff2') format('woff2'),
-//   url('/fonts/citystreetwear-light-webfont.woff') format('woff');
-  
-// }
-// .city-font{
-//   font-family: 'city_streetwearlight';
-//   font-size: 6em;
-// }
-
-// @font-face {
-//   font-family: 'myriad-pro-B';
-//   src: url('/fonts/MyriadPro-Bold.woff') format('woff');
-
-// }
-
-// .pro-B-font{
-//   font-family: 'myriad-pro-B';
-// }
-// @font-face {
-//   font-family: 'myriad-pro';
-//   src: url('/fonts/MyriadPro-Regular.woff') format('woff');
-
-// }
-// .pro-font{
-//   font-family: 'myriad-pro';
-// }
-
-// @font-face {
-//   font-family: 'neutra-text';
-//   src: url('/fonts/neutratext-light.woff') format('woff');
-
-// }
-// .neutra-font{
-//   font-family: 'neutra-text';
-// }
-
-
-//   .dandilion-img{
-//     background-image: url("/img/image.jpg");
-//     background-size: cover;
-//     background-repeat: no-repeat;
-//     height: 460px;
-//   }
-//   .self-img{
-//     position: absolute;
-//     background-image: url("/img/self.jpg");
-//     background-position: bottom;
-//     background-size: cover;
-//     background-repeat: no-repeat;
-//     width: 800px;
-//     height: 500px;
-//   }
-// .bird{
-//   background-image: url("/img/bird.jpg");
-//   background-size: cover;
-//   background-repeat: no-repeat;
-//   height: 1140px;
-// }
 .click{
   cursor: pointer;
 }
-.t-lg{
+
+.t-xxl{
   font-size: xx-large;
 }
 .t-xl{
   font-size: x-large;
+}
+.t-lg{
+  font-size: larger;
 }
 .t-md{
   font-size: large;
