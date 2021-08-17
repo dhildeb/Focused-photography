@@ -27,20 +27,20 @@
     </div>
 
     <div class="row justify-content-center align-content-center text-center mb-5 ">
-      <div class="col-1 m-2 text-white d-flex justify-content-center">
-        <div class="circle bg-yellow d-flex align-content-bottom justify-content-center py-2">
+      <div class="col-1 m-2 d-flex justify-content-center">
+        <a href="" target="_blank" class="circle text-white bg-yellow d-flex align-content-bottom justify-content-center py-2">
           <i class="mdi mdi-facebook zoom icon pt-1" aria-hidden="true"></i>
-        </div>
+        </a>
       </div>
-      <div class="col-1 m-2 text-white d-flex justify-content-center">
-        <div class="circle bg-yellow d-flex align-content-bottom justify-content-center py-2">
+      <div class="col-1 m-2 d-flex justify-content-center">
+        <a href="https://www.instagram.com/jennifer.ashby.photography/?hl=en" target="_blank" class="circle text-white bg-yellow d-flex align-content-bottom justify-content-center py-2">
           <i class="mdi mdi-instagram zoom icon pt-1" aria-hidden="true"></i>
-        </div>
+        </a>
       </div>
-      <div class="col-1 m-2 text-white d-flex justify-content-center">
-        <div class="circle bg-yellow d-flex align-content-bottom justify-content-center py-2">
+      <div class="col-1 m-2 d-flex justify-content-center">
+        <a href="" target="_blank" class="circle text-white bg-yellow d-flex align-content-bottom justify-content-center py-2">
           <i class="mdi mdi-pinterest zoom icon pt-1" aria-hidden="true"></i>
-        </div>
+        </a>
       </div>
     </div>
   </div>

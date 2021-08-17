@@ -27,7 +27,7 @@
       </div>
     </div>
 
-    <div class="row pt-5 t-lg">
+    <div class="row pt-5 t-lg ml-5 pl-5">
       <p class="city-font position-absolute p-0 pl-3">
         what
       </p>

@@ -25,7 +25,7 @@
       </div>
     </div>
     <div class="col text-center align-self-center">
-      <a class="text-teal" href="https://www.instagram.com/jennifer.ashby.photography/?hl=en">
+      <a class="text-teal" href="https://www.instagram.com/jennifer.ashby.photography/?hl=en" target="_blank">
         BLOG
       </a>
     </div>
@@ -76,7 +76,7 @@
           ABOUT JENIFER
         </router-link>
         <div class="dropdown-divider"></div>
-        <a class="text-teal dropdown-item" href="https://www.instagram.com/jennifer.ashby.photography/?hl=en">
+        <a class="text-teal dropdown-item" href="https://www.instagram.com/jennifer.ashby.photography/?hl=en" target="_blank">
           BLOG
         </a>
         <div class="dropdown-divider"></div>

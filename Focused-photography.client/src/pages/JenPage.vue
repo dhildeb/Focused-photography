@@ -1,27 +1,29 @@
 <template>
   <!-- jen -->
   <div class="container-fluid my-5">
+    <div class="row justify-content-around">
+      <div class="col-6 text-left position-absolute click z-1" @click="state.bag=!state.bag, state.jen=false">
+        <p class="t-lg pro-B-font m-bag">
+          What's In My Bag?
+        </p>
+      </div>
+      <div class="col-6 text-right position-absolute click z-1" @click="state.jen=!state.jen, state.bag=false">
+        <p class="city-font position-absolute">
+          about
+        </p>
+        <div>
+          <p class="pro-B-font t-xxl">
+            JENNIFER
+          </p>
+        </div>
+      </div>
+    </div>
     <div class="row justify-content-center bg-white">
       <div :class="state.bag ? 'col-4' : 'col-4 d-none'">
         <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/focused-47421.appspot.com/o/static%20images%2F8.jpg?alt=media&token=3f9793dc-d6f5-48ff-90e4-8f523be45183" alt="camera bag">
       </div>
-      <div class="col-4 self-img d-flex flex-column flex-wrap align-content-between">
-        <div class="row">
-          <button class="col-6 text-left" @click="state.bag=!state.bag, state.jen=false">
-            <p class="t-lg">
-              Whats In My Bag
-            </p>
-          </button>
-          <button class="col-6 text-right" @click="state.jen=!state.jen, state.bag=false">
-            <p class="city-font position-absolute t-lg">
-              about
-            </p>
-            <p class="pro-B-font t-lg">
-              JENNIFER
-            </p>
-          </button>
-        </div>
-        <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/focused-47421.appspot.com/o/static%20images%2Fself.jpg?alt=media&token=4847c646-8bb2-4ce9-a873-d8c0c5ebfeb7" alt="jen">
+      <div class="self-img d-flex flex-column flex-wrap align-content-between">
+        <img class="img-fluid jen" src="https://firebasestorage.googleapis.com/v0/b/focused-47421.appspot.com/o/static%20images%2Fself.jpg?alt=media&token=4847c646-8bb2-4ce9-a873-d8c0c5ebfeb7" alt="jen">
       </div>
       <div :class="state.jen ? 'col-4' : 'col-4 d-none'">
         <p class="t-lg">
@@ -63,5 +65,16 @@ export default {
 }
 .d-none{
   transition: all 1s linear;
+}
+.jen{
+  object-fit: cover;
+  height: 60vh;
+}
+.z-1{
+  z-index: 1;
+}
+.m-bag{
+  margin-left: 10rem;
+  margin-top: 4rem;
 }
 </style>
