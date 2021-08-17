@@ -39,7 +39,5 @@ export default {
 </script>
 
 <style scoped>
-.rounded-xl{
-  border-radius: 1rem;
-}
+
 </style>

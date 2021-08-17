@@ -4,7 +4,10 @@
     <img class="rounded" :src="account.picture" alt="" />
     <p>{{ account.email }}</p>
   </div>
-  <button class="btn btn-danger" @click="logout">
+  <button class="btn btn-success" @click="login" v-if="!account.id">
+    login
+  </button>
+  <button class="btn btn-danger" @click="logout" v-if="account.id">
     logout
   </button>
 </template>
@@ -23,6 +26,9 @@ export default {
       account: computed(() => AppState.account),
       async logout() {
         await AuthService.logout({ returnTo: window.location.origin })
+      },
+      async login() {
+        await AuthService.loginWithPopup()
       }
     }
   }

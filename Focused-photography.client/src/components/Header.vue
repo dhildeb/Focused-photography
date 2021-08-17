@@ -123,7 +123,7 @@ export default {
     return {
       state,
       async login() {
-        AuthService.loginWithPopup()
+        await AuthService.loginWithPopup()
       }
     }
   }

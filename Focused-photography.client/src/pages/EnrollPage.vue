@@ -1,7 +1,7 @@
 <template>
   <!-- header -->
   <div class="container-fluid bird" :style="{'background-image': 'url(https://firebasestorage.googleapis.com/v0/b/focused-47421.appspot.com/o/static%20images%2Fbird.jpg?alt=media&token=7bf256b3-1d6d-4b12-8fb3-e9df7c90071f)'}">
-    <div class="row p-5 ml-5">
+    <div class="row mt-5 pt-5 pl-5 ml-5">
       <p class="city-font position-absolute pl-4">
         enrollment
       </p>
@@ -36,7 +36,7 @@
       <div class="col-2"></div>
       <div class="col-6">
         <div class="dropdown row">
-          <button class="btn btn-block text-left btn-white dropdown-toggle"
+          <button class="btn btn-block text-left btn-white dropdown-toggle rounded-xl"
                   type="button"
                   id="dropdownMenuButton"
                   data-toggle="dropdown"
@@ -56,7 +56,7 @@
 
     <div class="row p-5">
       <div class="col-2"></div>
-      <button class="col-2 btn bg-yellow text-white p-1">
+      <button class="col-2 btn bg-yellow text-white p-1 rounded-xl">
         SIGN ME UP!!
       </button>
     </div>
