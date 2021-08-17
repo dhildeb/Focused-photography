@@ -3,7 +3,7 @@
     <header>
       <Header />
     </header>
-    <main class="d-flex flex-column">
+    <main class="d-flex flex-column bg-white">
       <router-view />
     </main>
     <footer>

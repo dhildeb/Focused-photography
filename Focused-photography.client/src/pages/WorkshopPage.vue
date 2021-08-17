@@ -2,7 +2,7 @@
   <!-- about workshop -->
 
   <div class="container my-5">
-    <div class="row p-5 justify-content-end">
+    <div class="row justify-content-end">
       <p class="city-font position-absolute p-3 m-about pr-5">
         about
       </p>
@@ -27,7 +27,7 @@
       </div>
     </div>
 
-    <div class="row p-5 t-lg">
+    <div class="row pt-5 t-lg">
       <p class="city-font position-absolute p-0 pl-3">
         what
       </p>
@@ -74,7 +74,7 @@
   </div>
   <!-- why it works -->
   <div class="container">
-    <div class="row p-4 justify-content-end mr-5 pr-5">
+    <div class="row p-4 justify-content-end mr-xl">
       <p class="city-font position-absolute p-3 mr-5 pr-5">
         why
       </p>
@@ -84,14 +84,9 @@
         </p>
       </div>
     </div>
-    <div class="row pb-5 text-center">
-      <p class="double-space">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa harum quidem optio vero rerum explicabo, quis
-        maxime qui, fugiat totam alias consequuntur maiores deserunt eligendi tenetur. Tempora exercitationem dolorem
-        quae?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente, nihil vel maxime vero nostrum qui,
-        officia placeat doloremque exercitationem iste veritatis delectus. Beatae, laboriosam nesciunt. Ullam iure
-        amet
-        consequatur natus!
+    <div class="row pb-5 mx-5 px-5">
+      <p class="double-space neutra-font t-lg">
+        It works because we tackle one aspect of photography at a time. You will have time to practice each new skill before moving on to the next. It works because we take a LOT of pictures which is how most of us learn - by doing! It works because each of the twelve lessons in the workshop are designed around the SMART goal-setting model: conent is Specific, Manageable, Achievable, Realistic and Time-bound.
       </p>
     </div>
     <div class="row p-5 justify-content-around">
@@ -110,59 +105,52 @@
     </div>
   </div>
   <!-- why subscribe -->
-  <div class="container-fluid py-5">
-    <div class="row justify-content-center p-5">
+  <div class="container-fluid bg-warm-gray">
+    <div class="row justify-content-center p-0 pt-3">
       <p class="position-absolute city-font p-3 m-why">
         why
       </p>
-      <div class="col-12 p-5">
+      <div class="col-12">
         <p class="pro-B-font text-center t-xxl mt-4">
           SUBSCRIBE?
         </p>
       </div>
     </div>
 
-    <div class="row text-center bg-warm-gray py-5">
+    <div class="row text-center neutra-font">
       <div class="col-4">
-        <b>Lorem, ipsum.</b>
+        <b>Education</b>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam provident saepe laborum iure repellat
-          inventore, assumenda illum harum. Quasi accusamus molestias animi eius consequuntur aut modi inventore
-          maxime
-          hic ipsam.
+          For beginning and intermediate photographers alike. Our exclusive monthly content includes video instruction, downloadable PDF handouts for easy reference, and assignments that will help you to create frame-worthy photos.
         </p>
       </div>
       <div class="col-4">
-        <b>Expedita, eos.</b>
+        <b>Support</b>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam provident saepe laborum iure repellat
-          inventore, assumenda illum harum. Quasi accusamus molestias animi eius consequuntur aut modi inventore
-          maxime
-          hic ipsam.
+          One-on-one mentoring from a certified professional photographer. Jennifer will answer your questions, give feedback on your images, as well as offer the support and encouragement normally reserved for the physical classroom.
         </p>
       </div>
       <div class="col-4">
-        <b>Architecto, unde.</b>
+        <b>Inspiration</b>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam provident saepe laborum iure repellat
-          inventore, assumenda illum harum. Quasi accusamus molestias animi eius consequuntur aut modi inventore
-          maxime
-          hic ipsam.
+          I will challenge you, inspire you, and push you to learn the skill and art of photography. I hope to get you excited to try new techniques, to look at the world around you a little differently and to realize that you can do this too!
         </p>
       </div>
     </div>
 
-    <div class="row p-5"></div>
+    <div class="row p-4 bg-white"></div>
 
     <div class="row bg-cool-gray p-3"></div>
 
-    <div class="row pt-5 text-center justify-content-center">
-      <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione, quae!</span>
+    <div class="row py-3 text-center justify-content-center neutra-font t-xl bg-white">
+      <span>Are you ready to learn the art of photography?</span>
     </div>
 
-    <div class="row pb-5 pt-1 justify-content-center">
-      <button class="btn btn-secondary">
-        Lorem, ipsum.
+    <div class="row pb-5 pt-1 justify-content-center bg-white">
+      <button class="btn bg-focus-dark rounded-xl text-white pro-font"
+              @click="router.push('enroll')"
+      >
+        GRAB YOUR SPOT!
       </button>
     </div>
 
@@ -170,47 +158,47 @@
   </div>
   <!-- FAQ -->
   <div class="container">
-    <div class="row justify-content-center pb-3">
-      <p>Lorem, ipsum dolor.</p>
+    <div class="row justify-content-center p-5">
+      <p class="city-font">
+        frequently asked questions:
+      </p>
     </div>
-    <div class="row pb-5">
-      <li class="p-2">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque, sint. Quibusdam illo dolor
-        facere
-        id, corporis placeat molestias, nobis, saepe praesentium ex sequi deleniti perferendis tempore pariatur
-        quisquam
-        delectus fugit!
-      </li>
-      <li class="p-2">
-        Impedit, dolorem ullam? Atque accusantium, impedit cumque repellat dolore, et quo ipsa similique
-        accusamus fuga vero tempore alias quidem asperiores labore ex veniam explicabo nostrum recusandae voluptatibus
-        totam. Non, eos.
-      </li>
-      <li class="p-2">
-        Quaerat aperiam quis voluptates a ipsam accusantium atque voluptatibus iste, reprehenderit
-        aliquid, sunt quae nihil fugit illum rem quia ratione soluta consectetur dolorum consequatur. Enim a
-        voluptates
-        quod cum totam.
-      </li>
-      <li class="p-2">
-        Obcaecati magnam nostrum ipsum consequuntur excepturi quia eos, labore animi harum, accusamus
-        beatae commodi quidem culpa ipsam unde. Dolores iusto dolor aspernatur culpa similique neque, deleniti
-        laudantium velit est illum!
-      </li>
+    <div class="row pb-5 neutra-font">
+      <span class="t-lg">> Q: Do I need to have a fancy DSLR camera to take this course?</span>
+      <p class="p-2">
+        Yes and No. You do need to have a camera on which you can adjust the settings manually. You don't have to have a fancy camera though! Start simple. I'm a big believer in out-growing your gear. I have linked gear that I recommend in several price points <router-link class="decorate" :to="{name: 'Jen'}" title="About Jen">
+          here
+        </router-link>.
+      </p>
+      <span class="t-lg">> Q: Will the course teach how to enhance my images in photoshop?</span>
+      <p class="p-2">
+        The focus of this workshop is what happens in the camera, rather than what you do with the images in photoshop. In fact, I will be better able to help you improve your photos if you post them with little or no editting in photoshop. Learning to get your photo right in camera is our goal. Photoshop can then be used to enhance your images rather than "fix" them. When you're ready to tackle photoshop, Scott Kelby's books are golden!
+      </p>
+      <span class="t-lg">> Q: Will you be talking about business of photography in the course?</span>
+      <p class="p-2">
+        We stay focused on the are of photography. I can point you to several fantastic resources that will guide you in starting a business if you are interested.
+      </p>
+      <span class="t-lg">> Q: Why is the workshop a year long?</span>
+      <p class="p-2">
+        I have deliberately timed the workshop to span the course of a year. Almost everyone learns best by doing, so I've given you a manageable amount of information each month... and then I've given you the time to deliberately practice the skills taught. You'll learn by seeing the examples, hearing the lessons, and then by doing the exercises.
+      </p>
     </div>
   </div>
 </template>
 
 <script>
 import { reactive } from '@vue/reactivity'
+import { useRouter } from 'vue-router'
 export default {
   name: 'Workshop',
   setup() {
+    const router = useRouter()
     const state = reactive({
       dandilion: 'https://firebasestorage.googleapis.com/v0/b/focused-47421.appspot.com/o/static%20images%2Fimage.jpg?alt=media&token=9543cfde-de4f-49d0-a31c-f490df785748'
     })
     return {
-      state
+      state,
+      router
     }
   }
 }
@@ -227,11 +215,23 @@ export default {
 }
 .m-why{
   margin-right: 10rem;
+  margin-top: -3rem;
 }
 .mt-workshop{
   margin-top: 5.1rem;
 }
 .double-space{
   line-height: 2;
+}
+.mr-xl{
+  margin-right: 18rem;
+}
+.decorate{
+ color: #1a0dab;
+}
+.decorate:hover{
+ text-decoration: underline;
+ text-decoration-color: #1a0dab;
+ color: #1a0dab;
 }
 </style>

@@ -46,6 +46,8 @@ a:hover{
   text-decoration: none;
 }
 .circle{
+  min-height: 40px;
+  min-width: 40px;
   height: 40px;
   width: 40px;
   border-radius: 50%;

@@ -43,7 +43,7 @@
       <router-link class="text-teal" :to="{name: 'Account'}" v-if="!state.account.id">
         SIGN UP/SIGN IN
       </router-link>
-      <router-link class="text-teal dropdown-item" :to="{name: 'Lessons'}" v-else>
+      <router-link class="text-teal" :to="{name: 'Lessons'}" v-else>
         MY LESSONS
       </router-link>
     </div>
