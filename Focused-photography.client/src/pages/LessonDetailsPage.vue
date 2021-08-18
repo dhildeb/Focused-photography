@@ -9,7 +9,7 @@
     </div>
     <LessonHeader />
     <LessonHome v-if="route.params.route === 'Home'" />
-    <LessonDetails v-if="route.params.route === 'Info'" />
+    <LessonInfo v-if="route.params.route === 'Info'" />
     <LessonGallery v-if="route.params.route === 'Gallery'" />
     <LessonQA v-if="route.params.route === 'QA'" />
   </div>
