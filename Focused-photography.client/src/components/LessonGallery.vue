@@ -1,5 +1,5 @@
 <template>
-  <h1>Lesson Home Component</h1>
+  <h1>Lesson Gallery Component</h1>
 </template>
 
 <script>

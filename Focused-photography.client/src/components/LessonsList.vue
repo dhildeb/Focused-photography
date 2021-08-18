@@ -9,7 +9,7 @@
       </div>
 
       <div class="col p-0">
-        <router-link :to="{name:'LessonDetail', params: {name: list}}">
+        <router-link :to="{name:'LessonDetails', params: {name: list, route: 'Home'}}">
           <img class="img-fluid" :src="state.coverPic[state.month]" :alt="list">
         </router-link>
       </div>

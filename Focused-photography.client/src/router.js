@@ -22,11 +22,6 @@ const routes = [
     component: loadPage('JenPage')
   },
   {
-    path: '/account',
-    name: 'Account',
-    component: loadPage('AccountPage')
-  },
-  {
     path: '/enroll',
     name: 'Enroll',
     component: loadPage('EnrollPage')
@@ -37,15 +32,20 @@ const routes = [
     component: loadPage('GalleryPage')
   },
   {
+    path: '/account',
+    name: 'Account',
+    component: loadPage('AccountPage')
+  },
+  {
     path: '/lessons',
     name: 'Lessons',
     component: loadPage('LessonsPage')
     // beforeEnter: authGuard
   },
   {
-    path: '/lessons/:name',
-    name: 'LessonDetail',
-    component: loadPage('LessonDetailPage')
+    path: '/lessons/:name/:route',
+    name: 'LessonDetails',
+    component: loadPage('LessonDetailsPage')
     // beforeEnter: authGuard
   }
 ]

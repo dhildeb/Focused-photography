@@ -31,7 +31,7 @@
     </div>
     <div class="col text-center align-self-center">
       <router-link :to="{name: 'Gallery'}" class="text-teal">
-        GALLERY
+        JENNIFER'S GALLERY
       </router-link>
     </div>
     <div class="col text-center align-self-center">
@@ -41,9 +41,9 @@
     </div>
     <div class="col text-center align-self-center text-nowrap">
       <router-link class="text-teal" :to="{name: 'Account'}" v-if="!state.account.id">
-        SIGN UP/SIGN IN
+        MEMBER LOGIN
       </router-link>
-      <router-link class="text-teal" :to="{name: 'Lessons'}" v-else>
+      <router-link class="text-teal" :to="{name: 'Lessons'}">
         MY LESSONS
       </router-link>
     </div>
@@ -92,7 +92,7 @@
           login
         </button>
         <router-link class="text-teal dropdown-item" :to="{name: 'Account'}" v-if="!state.account.id">
-          SIGN UP/SIGN IN
+          Login
         </router-link>
         <router-link class="text-teal dropdown-item" :to="{name: 'Lessons'}" v-if="state.account.id">
           MY LESSONS
