@@ -6,11 +6,11 @@
 //   transtions change the settings below
 .route-enter-active,
 .route-leave-active {
-  transition: all 0s linear; // try changing 0s to .25s
+  transition: all 0s linear; 
 }
 .route-enter-from,
 .route-leave-to {
-  opacity: 1; // try setting to 0
+  opacity: 1; 
 }
 
 
