@@ -16,11 +16,20 @@
 </template>
 
 <script>
+import { watchEffect } from '@vue/runtime-core'
 import { useRoute } from 'vue-router'
+import { commentService } from '../services/CommentService'
+import { AppState } from '../AppState'
+import { pictureservice } from '../services/PictureService'
 
 export default {
   name: 'LessonDetails',
   setup() {
+    watchEffect(async() => {
+      const route = useRoute()
+      await commentService.getCommentsByLesson(AppState.lessonName.indexOf(route.params.route) + 1)
+      await pictureservice.getPicsByLesson(AppState.lessonName.indexOf(route.params.route) + 1)
+    })
     const route = useRoute()
     return {
       route

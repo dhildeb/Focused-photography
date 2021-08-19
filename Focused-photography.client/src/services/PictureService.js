@@ -39,6 +39,16 @@ class PictureService {
     }
   }
 
+  async getPicsByLesson(lesson) {
+    try {
+      const res = await api.get('/api/pics/' + lesson)
+      console.log(res.data)
+      AppState.pictures = res.data
+    } catch (error) {
+      logger.log(error.message)
+    }
+  }
+
   async createPic(picData) {
     try {
       const res = await api.post('api/pics', picData)

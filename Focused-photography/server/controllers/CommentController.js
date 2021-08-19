@@ -4,7 +4,7 @@ import BaseController from '../utils/BaseController'
 
 export class CommentController extends BaseController {
   constructor() {
-    super('api/comments')
+    super('api/comment')
     this.router
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get('/:lesson', this.getCommentsByLesson)

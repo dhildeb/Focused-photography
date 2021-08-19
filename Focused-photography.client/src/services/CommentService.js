@@ -3,20 +3,20 @@ import { logger } from '../utils/Logger'
 import { api } from './AxiosService'
 
 class CommentService {
-  async createComment(commentData, pictureId) {
+  async getCommentsByLesson(lesson) {
     try {
-      const res = await api.post('api/comment/' + pictureId, commentData)
-      AppState.comments.push(res.data)
+      const res = await api.get('api/comment/' + lesson)
+      console.log(res.data)
+      AppState.comments = res.data
     } catch (error) {
       logger.log(error.message)
     }
   }
 
-  async editComment(commentData, id) {
+  async createComment(commentData, pictureId) {
     try {
-      const index = AppState.comments.findIndex(c => c.id === id)
-      const res = await api.put('api/comment/' + id, commentData)
-      AppState.comments.splice(index, 1, res.data)
+      const res = await api.post('api/comment/' + pictureId, commentData)
+      AppState.comments.push(res.data)
     } catch (error) {
       logger.log(error.message)
     }
