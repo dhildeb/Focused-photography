@@ -2,6 +2,11 @@ import { dbContext } from '../db/DbContext'
 import { BadRequest } from '../utils/Errors'
 import { accountService } from './AccountService'
 class PictureSercive {
+  async getPicsByLesson(lesson) {
+    const pics = await dbContext.Picture.find({ lesson: lesson })
+    return pics
+  }
+
   async getAll(query = {}) {
     const pics = await dbContext.Picture.find(query)
     return pics

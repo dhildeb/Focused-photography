@@ -11,10 +11,20 @@ export class PictureController extends BaseController {
       .get('/:accountId', this.getUserPics)
       .get('/:pictureId', this.getOne)
       .use(Auth0Provider.getAuthorizedUserInfo)
+      .get('/:lesson', this.getPicsByLesson)
       .get('/:pictureId/comments', this.getPicComments)
       .post('', this.createPic)
       .put('/:pictureId', this.editPic)
       .delete('/:pictureId', this.deletePic)
+  }
+
+  async getPicsByLesson(req, res, next) {
+    try {
+      const pics = await pictureService.getPicsByLesson(req.params.lesson)
+      res.send(pics)
+    } catch (error) {
+      next(error)
+    }
   }
 
   async getAll(req, res, next) {

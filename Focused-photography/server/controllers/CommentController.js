@@ -7,25 +7,24 @@ export class CommentController extends BaseController {
     super('api/comments')
     this.router
       .use(Auth0Provider.getAuthorizedUserInfo)
+      .get('/:lesson', this.getCommentsByLesson)
       .post('/:lesson', this.createComment)
-      .put('/:commentId', this.editComment)
       .delete('/:commentId', this.deleteComment)
+  }
+
+  async getCommentsByLesson(req, res, next) {
+    try {
+      const comments = await commentService.getCommentsByLesson(req.params.lesson)
+      res.send(comments)
+    } catch (error) {
+      next(error)
+    }
   }
 
   async createComment(req, res, next) {
     try {
       req.body.creatorId = req.userInfo.id
       const comment = await commentService.createComment(req.body, req.params.pictureId)
-      res.send(comment)
-    } catch (error) {
-      next(error)
-    }
-  }
-
-  async editComment(req, res, next) {
-    try {
-      req.body.creatorId = req.userInfo.id
-      const comment = await commentService.editComment(req.body, req.params.commentId)
       res.send(comment)
     } catch (error) {
       next(error)
