@@ -1,5 +1,6 @@
 import { dbContext } from '../db/DbContext'
 import { BadRequest } from '../utils/Errors'
+import { accountService } from './AccountService'
 class PictureSercive {
   async getAll(query = {}) {
     const pics = await dbContext.Picture.find(query)
@@ -18,11 +19,21 @@ class PictureSercive {
   }
 
   async createPic(picData) {
-    return await dbContext.Picture.create(picData)
+    const creator = await accountService.getAccount(picData.creatorId)
+    if (creator.lessons < picData.lesson) {
+      throw new BadRequest('You don\'t have access to that lesson')
+    }
+    const pic = await dbContext.Picture.create(picData)
+    return pic
   }
 
   async editPic(picData, id) {
+    delete picData.picture
+    delete picData.creatorId
     const pic = await dbContext.Picture.findByIdAndUpdate(id, picData, { new: true, runValidators: true })
+    if (!pic) {
+      throw new BadRequest('invalid ID')
+    }
     // await pic.populate('creator')
     return pic
   }

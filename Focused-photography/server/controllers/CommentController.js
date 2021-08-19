@@ -7,7 +7,7 @@ export class CommentController extends BaseController {
     super('api/comments')
     this.router
       .use(Auth0Provider.getAuthorizedUserInfo)
-      .post('/:pictureId', this.createComment)
+      .post('/:lesson', this.createComment)
       .put('/:commentId', this.editComment)
       .delete('/:commentId', this.deleteComment)
   }

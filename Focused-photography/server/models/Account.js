@@ -6,8 +6,9 @@ export const AccountSchema = new Schema(
     subs: [{ type: String, unique: true }],
     email: { type: String, lowercase: true, unique: true },
     name: { type: String, required: true },
-    picture: { type: String }
-    // NOTE If you wish to add additional public properties for Accounts do so here
+    picture: { type: String },
+    lessons: { type: Number, default: 0 },
+    admin: { type: Boolean, default: false }
   },
   { timestamps: true, toJSON: { virtuals: true } }
 )

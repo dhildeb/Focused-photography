@@ -1,5 +1,5 @@
 <template>
-  <body class="container-fluid p-0">
+  <body class="container-fluid bg-white p-0">
     <header>
       <Header />
     </header>

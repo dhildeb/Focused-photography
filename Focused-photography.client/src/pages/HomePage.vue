@@ -1,6 +1,6 @@
 <template>
   <!-- video -->
-  <div class="container-fluid header-border mt-5 embed-responsive embed-responsive-16by9 p-0">
+  <div class="container-fluid mt-5 embed-responsive embed-responsive-16by9 p-0">
     <div class="row my-5 ">
       <video
         class="img-fluid"
