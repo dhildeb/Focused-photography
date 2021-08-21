@@ -10,7 +10,7 @@
       </div>
 
       <div class="col-10 text-cool-gray text-center align-self-center p-5">
-        <form @submit.prevent="upload">
+        <form @submit.prevent="adminUpload">
           <div class="col">
             <div class="form-group">
               <input type="text"
@@ -91,7 +91,7 @@ export default {
         state.selected = true
       },
       // <----------------------upload proccess---------------------------->
-      async upload() {
+      async adminUpload() {
         const imgName = state.newPost.body
         const res = await fireBaseLogic.upload(imgName, state.files[0])
         state.newPost.imgUrl = res.url

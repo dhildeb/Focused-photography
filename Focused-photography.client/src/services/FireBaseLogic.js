@@ -15,6 +15,13 @@ class FireBaseLogic {
     logger.log(url, snapshot)
     return { url }
   }
+
+  async adminUpload(imgName, data) {
+    const collection = storage.ref(`Jen images/${imgName}/.png`)
+    const snapshot = await collection.put(data)
+    const url = await snapshot.ref.getDownloadURL()
+    return { url }
+  }
 }
 
 export const fireBaseLogic = new FireBaseLogic()
