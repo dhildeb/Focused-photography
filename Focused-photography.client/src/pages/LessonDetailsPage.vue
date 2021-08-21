@@ -11,7 +11,7 @@
     <LessonHome v-if="route.params.route === 'Home'" />
     <LessonInfo v-if="route.params.route === 'Info'" />
     <LessonGallery v-if="route.params.route === 'Gallery'" />
-    <LessonQA v-if="route.params.route === 'QA'" />
+    <LessonQA v-if="route.params.route === 'QA'" :key="route.params.name" :lesson="route.params.name" />
   </div>
 </template>
 
@@ -27,8 +27,8 @@ export default {
   setup() {
     watchEffect(async() => {
       const route = useRoute()
-      await commentService.getCommentsByLesson(AppState.lessonName.indexOf(route.params.route) + 1)
-      await pictureservice.getPicsByLesson(AppState.lessonName.indexOf(route.params.route) + 1)
+      await commentService.getCommentsByLesson(AppState.lessonName.indexOf(route.params.name) + 1)
+      await pictureservice.getPicsByLesson(AppState.lessonName.indexOf(route.params.name) + 1)
     })
     const route = useRoute()
     return {

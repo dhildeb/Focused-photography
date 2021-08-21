@@ -14,14 +14,18 @@ class CommentService {
     return comments
   }
 
-  async createComment(commentData, pictureId) {
+  async createComment(commentData) {
+    const comment = await dbContext.Comment.create(commentData)
+    return comment
+  }
+
+  async createPicComment(commentData, pictureId) {
     const picture = await pictureService.getOne(pictureId)
     const creator = await accountService.getAccount(commentData.creatorId)
     if (picture.creatorId !== commentData.creatorId && !creator.admin) {
       throw new BadRequest('You do not have permission to make a comment')
     }
-    const newComment = { commentData, pictureId }
-    const comment = await dbContext.Comment.create(newComment)
+    const comment = await dbContext.Comment.create({ body: commentData, pictureId: pictureId })
     return comment
   }
 

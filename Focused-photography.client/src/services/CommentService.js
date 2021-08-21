@@ -13,9 +13,18 @@ class CommentService {
     }
   }
 
-  async createComment(commentData, pictureId) {
+  async createPicComment(commentData, pictureId) {
     try {
       const res = await api.post('api/comment/' + pictureId, commentData)
+      AppState.comments.push(res.data)
+    } catch (error) {
+      logger.log(error.message)
+    }
+  }
+
+  async createComment(commentData) {
+    try {
+      const res = await api.post('api/comment/' + commentData.lesson, commentData)
       AppState.comments.push(res.data)
     } catch (error) {
       logger.log(error.message)

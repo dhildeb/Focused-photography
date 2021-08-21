@@ -9,6 +9,7 @@ export class CommentController extends BaseController {
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get('/:lesson', this.getCommentsByLesson)
       .post('/:lesson', this.createComment)
+      .post('/:lesson', this.createPicComment)
       .delete('/:commentId', this.deleteComment)
   }
 
@@ -24,7 +25,17 @@ export class CommentController extends BaseController {
   async createComment(req, res, next) {
     try {
       req.body.creatorId = req.userInfo.id
-      const comment = await commentService.createComment(req.body, req.params.pictureId)
+      const comment = await commentService.createComment(req.body)
+      res.send(comment)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async createPicComment(req, res, next) {
+    try {
+      req.body.creatorId = req.userInfo.id
+      const comment = await commentService.createPicComment(req.body, req.params.pictureId)
       res.send(comment)
     } catch (error) {
       next(error)
