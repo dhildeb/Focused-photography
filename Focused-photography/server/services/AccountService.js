@@ -43,6 +43,26 @@ function sanitizeBody(body) {
 }
 
 class AccountService {
+  async purchaseNextLesson(id) {
+    // TODO add a check if they actually purchased
+    const account = await dbContext.Account.findOneAndUpdate(
+      { _id: id },
+      { $inc: { lessons: 1 } },
+      { runValidators: true, new: true }
+    )
+    return account
+  }
+
+  async purchaseAllLessons(id) {
+    // TODO add a check if they actually purchased
+    const account = await dbContext.Account.findOneAndUpdate(
+      { _id: id },
+      { lessons: 12 },
+      { runValidators: true, setDefaultsOnInsert: true, new: true }
+    )
+    return account
+  }
+
   /**
     * Returns a list user profiles from a query search of name or email likeness
     * limits to first 20 without offset

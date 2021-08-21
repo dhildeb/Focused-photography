@@ -61,11 +61,37 @@
       </button>
     </div>
   </div>
+
+  <p>Purchase The Next Lesson</p>
+  <button class="btn btn-info" @click="buyNextLesson">
+    Buy Now
+  </button>
 </template>
 
 <script>
+import { reactive } from '@vue/reactivity'
+import { accountService } from '../services/AccountService'
+import Notification from '../utils/Notification'
+import { computed } from '@vue/runtime-core'
+import { AppState } from '../AppState'
 export default {
-  name: 'Enroll'
+  name: 'Enroll',
+  setup() {
+    const state = reactive({
+      account: computed(() => AppState.account)
+    })
+    return {
+      state,
+      async buyNextLesson() {
+        console.log(state.account)
+        try {
+          await accountService.buyNextLesson(state.account.id)
+        } catch (error) {
+          Notification.toast(error.message)
+        }
+      }
+    }
+  }
 }
 </script>
 

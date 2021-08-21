@@ -24,7 +24,8 @@ class PictureSercive {
   }
 
   async createPic(picData) {
-    const creator = await accountService.getAccount({ id: picData.creatorId })
+    const user = { id: picData.creatorId }
+    const creator = await accountService.getAccount(user)
     if (creator.lessons < picData.lesson) {
       throw new BadRequest('You don\'t have access to that lesson')
     }
