@@ -53,7 +53,7 @@ export default {
       files: [],
       img: '',
       lessonNum: computed(() => AppState.lessonName.indexOf(route.params.name) + 1),
-      pics: computed(() => AppState.pictures),
+      pics: computed(() => AppState.pictures.filter(p => p.lesson === state.lessonNum)),
       account: computed(() => AppState.account)
     })
     return {

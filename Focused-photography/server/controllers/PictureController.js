@@ -11,7 +11,7 @@ export class PictureController extends BaseController {
       .get('/:accountId', this.getUserPics)
       .get('/:pictureId', this.getOne)
       .use(Auth0Provider.getAuthorizedUserInfo)
-      .get('/:lesson', this.getPicsByLesson)
+      .get('/lesson', this.getPicsByLesson)
       .get('/:pictureId/comments', this.getPicComments)
       .post('', this.createPic)
       .put('/:pictureId', this.editPic)
@@ -20,7 +20,7 @@ export class PictureController extends BaseController {
 
   async getPicsByLesson(req, res, next) {
     try {
-      const pics = await pictureService.getPicsByLesson(req.params.lesson)
+      const pics = await pictureService.getPicsByLesson(req.body)
       res.send(pics)
     } catch (error) {
       next(error)

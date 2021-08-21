@@ -41,11 +41,11 @@ class PictureService {
 
   async getPicsByLesson(lesson) {
     try {
-      const res = await api.get('/api/pics/' + lesson)
+      const res = await api.get('/api/pics/lesson', lesson)
       console.log(res.data)
       AppState.pictures = res.data
     } catch (error) {
-      logger.log(error.message)
+      console.log(error.message)
     }
   }
 

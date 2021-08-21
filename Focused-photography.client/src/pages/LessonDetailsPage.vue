@@ -28,7 +28,7 @@ export default {
     watchEffect(async() => {
       const route = useRoute()
       await commentService.getCommentsByLesson(AppState.lessonName.indexOf(route.params.name) + 1)
-      await pictureservice.getPicsByLesson(AppState.lessonName.indexOf(route.params.name) + 1)
+      await pictureservice.getAll()
     })
     const route = useRoute()
     return {

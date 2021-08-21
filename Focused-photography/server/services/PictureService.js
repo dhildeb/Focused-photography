@@ -2,8 +2,8 @@ import { dbContext } from '../db/DbContext'
 import { BadRequest } from '../utils/Errors'
 import { accountService } from './AccountService'
 class PictureSercive {
-  async getPicsByLesson(lesson) {
-    const pics = await dbContext.Picture.find({ lesson: lesson })
+  async getPicsByLesson(lessonNum) {
+    const pics = await dbContext.Picture.find({ lesson: lessonNum }).populate('creator')
     return pics
   }
 
