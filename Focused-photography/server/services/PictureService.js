@@ -8,7 +8,7 @@ class PictureSercive {
   }
 
   async getAll(query = {}) {
-    const pics = await dbContext.Picture.find(query)
+    const pics = await dbContext.Picture.find(query).populate('creator')
     return pics
   }
 
