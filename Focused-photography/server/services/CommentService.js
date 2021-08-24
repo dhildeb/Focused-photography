@@ -5,7 +5,7 @@ import { pictureService } from './PictureService'
 
 class CommentService {
   async getCommentsByLesson(lesson) {
-    const comments = await dbContext.Comment.find({ lesson: lesson })
+    const comments = await dbContext.Comment.find({ lesson: lesson }).populate('creator')
     return comments
   }
 

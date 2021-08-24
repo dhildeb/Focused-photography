@@ -11,7 +11,8 @@
   </form>
   <p class="rounded border p-2" v-for="comment in state.comments" :key="comment.id" :comment="comment">
     {{ comment.body }}
-    <img class="rounded-circle imf-fluid" :src="commont.creator.picture" alt="profile pic">
+    <br />
+    <img class="rounded-circle imf-fluid profile-icon mt-3" :src="comment.creator.picture" alt="profile pic">
   </p>
 </template>
 

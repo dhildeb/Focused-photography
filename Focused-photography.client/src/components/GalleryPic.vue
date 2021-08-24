@@ -1,6 +1,6 @@
 <template>
   <div class="col-2 my-3 mx-3 p-0">
-    <a href="">
+    <a data-toggle="modal" data-target="#picModal" @click="setActive">
       <img :src="pic.picture" alt="" class="img-fluid thumbnail" :title="pic.title">
     </a>
   </div>
@@ -8,15 +8,19 @@
 
 <script>
 import { reactive } from '@vue/reactivity'
+import { AppState } from '../AppState'
 export default {
   props: {
     pic: { type: Object, required: true }
   },
-  setup() {
+  setup(props) {
     const state = reactive({
     })
     return {
-      state
+      state,
+      setActive() {
+        AppState.activePic = props.pic
+      }
     }
   }
 }

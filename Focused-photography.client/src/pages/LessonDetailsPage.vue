@@ -13,6 +13,7 @@
     <LessonGallery v-if="route.params.route === 'Gallery'" />
     <LessonQA v-if="route.params.route === 'QA'" :key="route.params.name" :lesson="route.params.name" />
   </div>
+  <PicModal />
 </template>
 
 <script>
