@@ -7,7 +7,7 @@
     </div>
     <div class="col align-self-center btn-group">
       <span type="button"
-            class="btn btn-white text-teal"
+            class="btn btn-white "
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
@@ -15,37 +15,54 @@
         ABOUT
       </span>
       <div class="dropdown-menu">
-        <router-link :to="{name: 'Workshop'}" class="dropdown-item text-teal">
+        <router-link :to="{name: 'Workshop'}" class="dropdown-item ">
           ABOUT WORKSHOP
         </router-link>
         <div class="dropdown-divider"></div>
-        <router-link :to="{name: 'Jen'}" class="dropdown-item text-teal">
+        <router-link :to="{name: 'Jen'}" class="dropdown-item ">
           ABOUT JENIFER
         </router-link>
       </div>
     </div>
     <div class="col text-center align-self-center">
-      <a class="text-teal" href="https://www.instagram.com/jennifer.ashby.photography/?hl=en" target="_blank">
+      <a class="" href="https://www.instagram.com/jennifer.ashby.photography/?hl=en" target="_blank">
         BLOG
       </a>
     </div>
     <div class="col text-center align-self-center">
-      <router-link :to="{name: 'Gallery'}" class="text-teal">
+      <router-link :to="{name: 'Gallery'}" class=" text-nowrap">
         JENNIFER'S GALLERY
       </router-link>
     </div>
     <div class="col text-center align-self-center">
-      <router-link :to="{name: 'Enroll'}" class="text-teal">
+      <router-link :to="{name: 'Enroll'}" class="">
         ENROLL
       </router-link>
     </div>
-    <div class="col text-center align-self-center text-nowrap">
-      <router-link class="text-teal" :to="{name: 'Account'}" v-if="!state.account.id">
+    <div class="col text-center align-self-center text-nowrap pr-5">
+      <a class=" click" @click="login" v-if="!state.account.id">
         MEMBER LOGIN
-      </router-link>
-      <router-link class="text-teal" :to="{name: 'Lessons'}">
-        MY LESSONS
-      </router-link>
+      </a>
+
+      <img type="button"
+           class=" rounded-circle profile-icon"
+           data-toggle="dropdown"
+           aria-haspopup="true"
+           aria-expanded="false"
+           title="Options"
+           :src="state.account.picture"
+           alt="profile picture"
+           v-else
+      >
+      <div class="dropdown-menu">
+        <router-link class="dropdown-item " :to="{name: 'Lessons'}">
+          MY LESSONS
+        </router-link>
+        <div class="dropdown-divider"></div>
+        <span class="dropdown-item " @click="logout">
+          LOGOUT
+        </span>
+      </div>
     </div>
     <div class="col-2">
     </div>
@@ -60,7 +77,7 @@
     <div class="col"></div>
     <div class="col-3 col-sm-2 d-flex jusify-content-end">
       <span type="button"
-            class="btn btn-white text-teal d-flex justify-content-end"
+            class="btn btn-white  d-flex justify-content-end"
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
@@ -68,35 +85,38 @@
         <i class="fa fa-bars fa-2x" title="Options"></i>
       </span>
       <div class="dropdown-menu text-center">
-        <router-link :to="{name: 'Workshop'}" class="dropdown-item text-teal">
+        <router-link :to="{name: 'Workshop'}" class="dropdown-item ">
           ABOUT WORKSHOP
         </router-link>
         <div class="dropdown-divider"></div>
-        <router-link :to="{name: 'Jen'}" class="dropdown-item text-teal">
+        <router-link :to="{name: 'Jen'}" class="dropdown-item ">
           ABOUT JENIFER
         </router-link>
         <div class="dropdown-divider"></div>
-        <a class="text-teal dropdown-item" href="https://www.instagram.com/jennifer.ashby.photography/?hl=en" target="_blank">
+        <a class=" dropdown-item" href="https://www.instagram.com/jennifer.ashby.photography/?hl=en" target="_blank">
           BLOG
         </a>
         <div class="dropdown-divider"></div>
-        <router-link :to="{name: 'Gallery'}" class="dropdown-item text-teal">
+        <router-link :to="{name: 'Gallery'}" class="dropdown-item ">
           GALLERY
         </router-link>
         <div class="dropdown-divider"></div>
-        <router-link :to="{name: 'Enroll'}" class="dropdown-item text-teal">
+        <router-link :to="{name: 'Enroll'}" class="dropdown-item ">
           ENROLL
         </router-link>
         <div class="dropdown-divider"></div>
-        <button @click="login">
-          login
-        </button>
-        <router-link class="text-teal dropdown-item" :to="{name: 'Account'}" v-if="!state.account.id">
-          Login
-        </router-link>
-        <router-link class="text-teal dropdown-item" :to="{name: 'Lessons'}" v-if="state.account.id">
-          MY LESSONS
-        </router-link>
+        <span class=" dropdown-item" @click="login" v-if="!state.account.id">
+          MEMBER LOGIN
+        </span>
+        <div v-else>
+          <router-link class=" dropdown-item" :to="{name: 'Lessons'}">
+            MY LESSONS
+          </router-link>
+          <div class="dropdown-divider"></div>
+          <span class="dropdown-item" @click="logout">
+            LOGOUT
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -124,6 +144,9 @@ export default {
       state,
       async login() {
         await AuthService.loginWithPopup()
+      },
+      async logout() {
+        await AuthService.logout({ returnTo: window.location.origin })
       }
     }
   }
@@ -134,14 +157,21 @@ export default {
 span{
   cursor: pointer;
   transition: all .1s linear;
+  color: var(--teal)
 }
 span:hover{
   color: var(--yellow);
+}
+a{
+  color: var(--teal)
 }
 a:hover{
   color: var(--yellow);
 }
 .router-link-exact-active{
   color: var(--yellow);
+}
+.profile-icon{
+  height: 38px;
 }
 </style>
