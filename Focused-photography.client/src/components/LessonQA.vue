@@ -9,11 +9,21 @@
       Submit
     </button>
   </form>
-  <p class="rounded border p-2" v-for="comment in state.comments" :key="comment.id" :comment="comment">
-    {{ comment.body }}
+  <div class="rounded border p-2 click"
+       title="comment"
+       v-for="comment in state.comments"
+       :key="comment.id"
+       :comment="comment"
+       data-toggle="modal"
+       data-target="#commentModal"
+       @click="setActiveComment(comment)"
+  >
+    <p>
+      {{ comment.body }}
+    </p>
     <br />
-    <img class="rounded-circle imf-fluid profile-icon mt-3" :src="comment.creator.picture" alt="profile pic">
-  </p>
+    <!-- <img class="rounded-circle imf-fluid profile-icon mt-3" :src="comment.creator.picture" alt="profile pic"> -->
+  </div>
 </template>
 
 <script>
@@ -44,6 +54,9 @@ export default {
           Notification.toast(error.message)
         }
         state.newComment.body = ''
+      },
+      setActiveComment(comment) {
+        AppState.activeComment = comment
       }
     }
   }

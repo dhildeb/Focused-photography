@@ -45,7 +45,7 @@
       </a>
 
       <img type="button"
-           class=" rounded-circle profile-icon"
+           class=" rounded profile-icon"
            data-toggle="dropdown"
            aria-haspopup="true"
            aria-expanded="false"
