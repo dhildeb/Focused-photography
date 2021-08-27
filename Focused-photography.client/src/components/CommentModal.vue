@@ -5,26 +5,21 @@
         <div class="modal-header text-center">
           <i class="mdi mdi-close-box text-danger click zoom"
              title="Close"
-             @click="close"
+             data-dismiss="modal"
+             aria-label="Close"
           ></i>
         </div>
         <div class="modal-body">
-          <div class="container">
-            <div class="row">
-              <div class="col flex-grow-1">
-                <div class="row pb-3">
-                  <!-- comments  -->
-                  <form class="form-group" @submit.prevent="createComment">
-                    <input id="body" class="input-group" type="text" placeholder="Question or Comment" v-bind="state.commentData.body">
-                    {{ state.commentData.body }}
-                    <button class="btn btn-info" type="submit">
-                      submit
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
+          <!-- comments  -->
+          <form class="form-group" @submit.prevent="createComment">
+            <input id="body" class="input-group" type="text" placeholder="Question or Comment">
+            {{ state.commentData.body }}
+            <button class="btn btn-info"
+                    type="submit"
+            >
+              submit
+            </button>
+          </form>
         </div>
       </div>
     </div>
@@ -47,9 +42,8 @@ export default {
       comments: computed(() => AppState.comments.filter(c => c.commenttureId === state.comment.id)),
       commentData: {
         commentId: computed(() => AppState.activeComment.id),
-        body: 'hello world',
         lesson: AppState.lessonName.indexOf(route.params.name) + 1,
-        commenttureId: computed(() => AppState.activecomment.id)
+        pictureId: computed(() => AppState.activePic.id)
       }
     })
     return {
@@ -57,11 +51,12 @@ export default {
       close() {
         $('#commentModal').modal('toggle')
       },
-      async createComment() {
-        console.log(state.commentData)
-        // await commentService.createComment(state.commentData)
-        // state.commentData = ''
-        // state.newComment = false
+      async createComment(event) {
+        state.commentData.body = event.target.body.value
+        await commentService.createComment(state.commentData)
+        state.commentData = ''
+        state.newComment = false
+        this.close()
       }
     }
   }
@@ -71,12 +66,4 @@ export default {
 <style scoped lang="scss">
 @import "../assets/scss/main.scss";
 
-.new-comment{
-  transition: all .25s linear;
-  background-color: white;
-}
-.new-comment:hover{
-  background-color: var(--cool-gray);
-  transform: scale(1.01);
-}
 </style>

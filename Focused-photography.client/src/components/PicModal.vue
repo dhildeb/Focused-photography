@@ -7,7 +7,7 @@
           <h4 class="m-auto">
             {{ state.pic.name }}
           </h4>
-          <i class="mdi mdi-close-box text-danger click zoom" title="Close" @click="close"></i>
+          <i class="mdi mdi-close-box text-danger click zoom" title="Close" data-dismiss="modal" aria-label="Close"></i>
         </div>
         <div class="modal-body">
           <div class="container">
@@ -25,8 +25,7 @@
                     New Comment...
                   </button>
                   <form class="form-group" @submit.prevent="createComment" v-if="state.newComment">
-                    <input id="body" class="input-group" type="text" placeholder="Question or Comment" v-bind="state.commentData.body">
-                    {{ state.commentData.body }}
+                    <input id="body" class="input-group" type="text" placeholder="Question or Comment">
                     <button class="btn btn-info" type="submit">
                       submit
                     </button>
@@ -62,7 +61,6 @@ export default {
       comments: computed(() => AppState.comments.filter(c => c.pictureId === state.pic.id)),
       newComment: false,
       commentData: {
-        body: 'hello world',
         lesson: AppState.lessonName.indexOf(route.params.name) + 1,
         pictureId: computed(() => AppState.activePic.id)
       }
@@ -72,11 +70,12 @@ export default {
       close() {
         $('#picModal').modal('toggle')
       },
-      async createComment() {
-        console.log(state.commentData)
-        // await commentService.createComment(state.commentData)
-        // state.commentData = ''
-        // state.newComment = false
+      async createComment(event) {
+        state.commentData.body = event.target.body.value
+        await commentService.createComment(state.commentData)
+        state.commentData = ''
+        state.newComment = false
+        this.close()
       }
     }
   }

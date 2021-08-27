@@ -14,7 +14,7 @@
     <LessonQA v-if="route.params.route === 'QA'" :key="route.params.name" :lesson="route.params.name" />
   </div>
   <PicModal />
-  <!-- <CommentModal /> -->
+  <CommentModal />
 </template>
 
 <script>

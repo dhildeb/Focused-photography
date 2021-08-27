@@ -22,7 +22,7 @@
       {{ comment.body }}
     </p>
     <br />
-    <!-- <img class="rounded-circle imf-fluid profile-icon mt-3" :src="comment.creator.picture" alt="profile pic"> -->
+    <img class="rounded-circle imf-fluid profile-icon mt-3" :src="comment.creator.picture" alt="profile pic">
   </div>
 </template>
 
