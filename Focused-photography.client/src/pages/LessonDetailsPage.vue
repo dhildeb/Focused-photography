@@ -18,23 +18,33 @@
 </template>
 
 <script>
-import { watchEffect } from '@vue/runtime-core'
-import { useRoute } from 'vue-router'
+import { computed, onMounted, reactive, watchEffect } from '@vue/runtime-core'
+import { useRoute, useRouter } from 'vue-router'
 import { commentService } from '../services/CommentService'
 import { AppState } from '../AppState'
 import { pictureservice } from '../services/PictureService'
+import { accountService } from '../services/AccountService'
 
 export default {
   name: 'LessonDetails',
   setup() {
+    const router = useRouter()
+    const route = useRoute()
+    const state = reactive({
+      lesson: computed(() => AppState.lessonName.indexOf(route.params.name) + 1)
+    })
     watchEffect(async() => {
-      const route = useRoute()
-      await commentService.getCommentsByLesson(AppState.lessonName.indexOf(route.params.name) + 1)
+      await commentService.getCommentsByLesson(state.lesson)
       await pictureservice.getAll()
     })
-    const route = useRoute()
+    onMounted(async() => {
+      if (await accountService.checkLessonsAccess(state.lesson)) {
+        router.push({ name: 'Home' })
+      }
+    })
     return {
-      route
+      route,
+      state
     }
   }
 }

@@ -40,15 +40,13 @@ const routes = [
     path: '/lessons',
     name: 'Lessons',
     component: loadPage('LessonsPage'),
-    beforeEnter: authSettled
-    // beforeEnter: authGuard
+    beforeEnter: authGuard
   },
   {
     path: '/lessons/:name/:route',
     name: 'LessonDetails',
     component: loadPage('LessonDetailsPage'),
-    beforeEnter: authSettled
-    // beforeEnter: authGuard
+    beforeEnter: authGuard
   }
 ]
 

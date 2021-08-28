@@ -22,13 +22,21 @@
 
 <script>
 import { reactive } from '@vue/reactivity'
-import { computed } from '@vue/runtime-core'
+import { computed, onMounted } from '@vue/runtime-core'
 import { AppState } from '../AppState'
+import { useRouter } from 'vue-router'
+import { accountService } from '../services/AccountService'
 export default {
   name: 'Lessons',
   setup() {
+    const router = useRouter()
     const state = reactive({
       list: computed(() => AppState.lessonName)
+    })
+    onMounted(async() => {
+      if (await accountService.checkLessonsAccess(1)) {
+        router.push({ name: 'Home' })
+      }
     })
     return {
       state

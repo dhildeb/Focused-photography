@@ -2,45 +2,52 @@
   <div class="modal fade" id="picModal" tabindex="-1" aria-labelledby="picModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
-        <div class="modal-header text-center">
-          <img class="img-fluid profile-icon rounded-circle click" title="profile picture" :src="state.pic.creator.picture" alt="profile picture">
-          <!-- <h4 class="m-auto">
-            {{ state.pic.name }}
-          </h4> -->
-          <b class="m-auto">
-            {{ state.pic.title }}
-          </b>
-          <i class="mdi mdi-close-box text-danger click zoom" title="Close" data-dismiss="modal" aria-label="Close"></i>
-        </div>
         <div class="modal-body">
           <div class="container">
-            <div class="row">
-              <img class="col-md-6 col-12 img-fluid img" :src="state.pic.picture" :alt="state.pic.name">
-              <div class="col flex-grow-1">
-                <div class="row">
+            <div class="row justify-content-end">
+              <i class="mdi mdi-close text-danger click zoom position-absolute" title="Close" data-dismiss="modal" aria-label="Close"></i>
+            </div>
+            <div class="row pt-3">
+              <img class="col-md-6 col-12 img-fluid" :src="state.pic.picture" :alt="state.pic.name">
+              <div class="col flex-grow-1 ml-5 p-3">
+                <small>
+                  {{ state.creatorName }} | {{ state.pic.creator.location }}
+                </small>
+                <p class="t-lg p-1 pt-3 m-0">
+                  LESSON:
+                </p>
+                <small>
+                  {{ state.pic.title }}
+                </small>
+              </div>
+              <div class="row p-5">
+                <!-- comments  -->
+                <div v-for="comment in state.comments" :key="comment.id" class="col-12 border-top pb-2">
+                  <p>{{ comment.body }}</p>
+                  <img class="profile-icon" :src="comment.creator.picture" alt="profile picture">
                 </div>
-                <div class="row pb-3">
-                  <!-- comments  -->
-                  <div v-for="comment in state.comments" :key="comment.id" class="border-bottom pb-2">
-                    <p>{{ comment.body }}</p>
-                    <img class="profile-icon" :src="comment.creator.picture" alt="profile picture">
-                  </div>
-                  <!-- new comment -->
-                  <button class="new-comment rounded-xl border border-secondary w-100 p-4" @click="state.newComment = !state.newComment" v-if="!state.newComment">
-                    New Comment...
+                <!-- new comment -->
+                <button class="col-12 new-comment rounded-xl border border-secondary w-100 p-4" @click="state.newComment = !state.newComment" v-if="!state.newComment">
+                  New Comment...
+                </button>
+                <form class="form-group" @submit.prevent="createComment" v-if="state.newComment">
+                  <textarea v-model="state.body"
+                            id="body"
+                            class="input-group rounded-xl p-1"
+                            rows="3"
+                            cols="255"
+                            type="text"
+                            placeholder="QUESTIONS OR COMMENTS"
+                  ></textarea>
+                  <button class="btn btn-block btn-info" type="submit" v-if="state.body">
+                    submit
                   </button>
-                  <form class="form-group" @submit.prevent="createComment" v-if="state.newComment">
-                    <input id="body" class="input-group" type="text" placeholder="Question or Comment">
-                    <button class="btn btn-info" type="submit">
-                      submit
-                    </button>
-                  </form>
+                </form>
+              </div>
+              <div class="row justify-content-between align-content-end bottom w-100">
+                <div class="text-center align-self-end">
                 </div>
-                <div class="row justify-content-between align-content-end bottom w-100">
-                  <div class="text-center align-self-end">
-                  </div>
-                  <!-- <i class="mdi mdi-delete text-danger click align-self-end zoom" title="Delete pic" v-if="state.pic.creatorId === state.account.id"></i> -->
-                </div>
+                <!-- <i class="mdi mdi-delete text-danger click align-self-end zoom" title="Delete pic" v-if="state.pic.creatorId === state.account.id"></i> -->
               </div>
             </div>
           </div>
@@ -62,6 +69,7 @@ export default {
     const route = useRoute()
     const state = reactive({
       pic: computed(() => AppState.activePic),
+      creatorName: computed(() => AppState.activePic.creator.name.split('@')[0]),
       account: computed(() => AppState.account),
       comments: computed(() => AppState.comments.filter(c => c.pictureId === state.pic.id)),
       newComment: false,
@@ -77,7 +85,7 @@ export default {
       },
       async createComment(event) {
         state.commentData.body = event.target.body.value
-        await commentService.createComment(state.commentData)
+        await commentService.createPicComment(state.commentData)
         state.commentData = ''
         state.newComment = false
         this.close()
@@ -96,6 +104,13 @@ export default {
 }
 .new-comment:hover{
   background-color: var(--cool-gray);
-  transform: scale(1.01);
+}
+textarea {
+  resize: none;
+  outline: none;
+  transition: all .1s linear;
+}
+textarea:focus{
+  border-color: var(--yellow)
 }
 </style>
