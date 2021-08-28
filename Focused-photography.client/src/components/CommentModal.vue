@@ -2,16 +2,22 @@
   <div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
-        <div class="modal-header text-center">
+        <div class="modal-header text-center d-flex justify-content-between">
           <i class="mdi mdi-close-box text-danger click zoom"
              title="Close"
              data-dismiss="modal"
              aria-label="Close"
           ></i>
+          <b>{{ state.activeComment.body }}</b>
+          <span></span>
         </div>
         <div class="modal-body">
           <!-- comments  -->
-          <form class="form-group" @submit.prevent="createComment">
+          <div v-for="comment in state.comments" :key="comment.id" class="border-bottom pb-2">
+            <p>{{ comment.body }}</p>
+            <img class="profile-icon" :src="comment.creator.picture" alt="profile picture">
+          </div>
+          <form class="form-group mt-5" @submit.prevent="createComment">
             <input id="body" class="input-group" type="text" placeholder="Question or Comment">
             {{ state.commentData.body }}
             <button class="btn btn-info"
@@ -37,13 +43,12 @@ export default {
   setup() {
     const route = useRoute()
     const state = reactive({
-      comment: computed(() => AppState.activecomment),
+      activeComment: computed(() => AppState.activeComment),
       account: computed(() => AppState.account),
-      comments: computed(() => AppState.comments.filter(c => c.commenttureId === state.comment.id)),
+      comments: computed(() => AppState.comments.filter(c => c.commentId === state.activeComment.id)),
       commentData: {
         commentId: computed(() => AppState.activeComment.id),
-        lesson: AppState.lessonName.indexOf(route.params.name) + 1,
-        pictureId: computed(() => AppState.activePic.id)
+        lesson: AppState.lessonName.indexOf(route.params.name) + 1
       }
     })
     return {

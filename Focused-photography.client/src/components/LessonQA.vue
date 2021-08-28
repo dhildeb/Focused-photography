@@ -9,20 +9,25 @@
       Submit
     </button>
   </form>
-  <div class="rounded border p-2 click"
-       title="comment"
+  <div class="rounded border p-2"
        v-for="comment in state.comments"
        :key="comment.id"
        :comment="comment"
-       data-toggle="modal"
-       data-target="#commentModal"
-       @click="setActiveComment(comment)"
   >
     <p>
       {{ comment.body }}
     </p>
     <br />
-    <img class="rounded-circle imf-fluid profile-icon mt-3" :src="comment.creator.picture" alt="profile pic">
+    <img class="rounded-circle imf-fluid profile-icon" :src="comment.creator.picture" alt="profile pic">
+    <div data-toggle="modal"
+         data-target="#commentModal"
+         @click="setActiveComment(comment)"
+         class="border border-rounded click text-center mt-2"
+    >
+      <p class="text-secondary" title=" make a comment">
+        Comment
+      </p>
+    </div>
   </div>
 </template>
 
@@ -43,7 +48,7 @@ export default {
         creatorId: computed(() => AppState.account.id),
         lesson: computed(() => AppState.lessonName.indexOf(props.lesson) + 1)
       },
-      comments: computed(() => AppState.comments)
+      comments: computed(() => AppState.comments.filter(c => !c.pictureId && !c.commentId))
     })
     return {
       state,
@@ -64,5 +69,10 @@ export default {
 </script>
 
 <style scoped>
-
+.click{
+  transition: all .1s linear;
+}
+.click:hover{
+  background-color: var(--light);
+}
 </style>

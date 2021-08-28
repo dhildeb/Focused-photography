@@ -4,9 +4,12 @@
       <div class="modal-content">
         <div class="modal-header text-center">
           <img class="img-fluid profile-icon rounded-circle click" title="profile picture" :src="state.pic.creator.picture" alt="profile picture">
-          <h4 class="m-auto">
+          <!-- <h4 class="m-auto">
             {{ state.pic.name }}
-          </h4>
+          </h4> -->
+          <b class="m-auto">
+            {{ state.pic.title }}
+          </b>
           <i class="mdi mdi-close-box text-danger click zoom" title="Close" data-dismiss="modal" aria-label="Close"></i>
         </div>
         <div class="modal-body">
@@ -15,12 +18,14 @@
               <img class="col-md-6 col-12 img-fluid img" :src="state.pic.picture" :alt="state.pic.name">
               <div class="col flex-grow-1">
                 <div class="row">
-                  <p class="p-3">
-                    {{ state.pic.title }}
-                  </p>
                 </div>
                 <div class="row pb-3">
                   <!-- comments  -->
+                  <div v-for="comment in state.comments" :key="comment.id" class="border-bottom pb-2">
+                    <p>{{ comment.body }}</p>
+                    <img class="profile-icon" :src="comment.creator.picture" alt="profile picture">
+                  </div>
+                  <!-- new comment -->
                   <button class="new-comment rounded-xl border border-secondary w-100 p-4" @click="state.newComment = !state.newComment" v-if="!state.newComment">
                     New Comment...
                   </button>
@@ -34,7 +39,7 @@
                 <div class="row justify-content-between align-content-end bottom w-100">
                   <div class="text-center align-self-end">
                   </div>
-                  <i class="mdi mdi-delete text-danger click align-self-end zoom" title="Delete pic" v-if="state.pic.creatorId === state.account.id"></i>
+                  <!-- <i class="mdi mdi-delete text-danger click align-self-end zoom" title="Delete pic" v-if="state.pic.creatorId === state.account.id"></i> -->
                 </div>
               </div>
             </div>
