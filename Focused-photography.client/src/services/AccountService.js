@@ -28,7 +28,7 @@ class AccountService {
       const res = await api.get('/account')
       if (res.data.lessons < lesson) {
         Notification.toast('You dont have access to that lesson, Please Purchase a plan.')
-        return false// FIXME true
+        return true
       }
       return false
     } catch (error) {

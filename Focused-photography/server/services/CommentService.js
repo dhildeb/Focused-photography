@@ -15,6 +15,12 @@ class CommentService {
   }
 
   async createComment(commentData) {
+    const account = await dbContext.Account.findOne({
+      _id: commentData.creatorId
+    })
+    if (account.lessons < commentData.lesson) {
+      throw new BadRequest('You dont have access to this lesson, please purchase a plan')
+    }
     const comment = await dbContext.Comment.create(commentData)
     return comment
   }
@@ -23,14 +29,14 @@ class CommentService {
     const picture = await pictureService.getOne(pictureId)
     const creator = await accountService.getAccount(commentData.creatorId)
     if (picture.creatorId !== commentData.creatorId && !creator.admin) {
-      throw new BadRequest('You do not have permission to make a comment')
+      throw new BadRequest('You do not have access to this lesson, please purchase a plan')
     }
     const comment = await dbContext.Comment.create({ body: commentData, pictureId: pictureId })
     return comment
   }
 
   async deleteComment(commentId, id) {
-    const comment = await dbContext.Comment.findByIdAndRemove({ _id: id }, commentId)
+    const comment = await dbContext.Comment.findByIdAndRemove({ _id: commentId, creatorId: id })
     if (!comment) {
       throw new BadRequest('Invalid ID')
     }

@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid bg-white">
+  <div class="container-fluid bg-white" v-if="state.account.lessons > state.lesson">
     <div class="row mt-5">
       <div class="col mx-5">
         <p class="t-lg m-0">
@@ -31,7 +31,8 @@ export default {
     const router = useRouter()
     const route = useRoute()
     const state = reactive({
-      lesson: computed(() => AppState.lessonName.indexOf(route.params.name) + 1)
+      lesson: computed(() => AppState.lessonName.indexOf(route.params.name) + 1),
+      account: computed(() => AppState.account)
     })
     watchEffect(async() => {
       await commentService.getCommentsByLesson(state.lesson)

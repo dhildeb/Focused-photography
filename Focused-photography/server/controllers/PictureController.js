@@ -20,6 +20,7 @@ export class PictureController extends BaseController {
 
   async getPicsByLesson(req, res, next) {
     try {
+      req.body.creatorId = req.userInfo.id
       const pics = await pictureService.getPicsByLesson(req.body)
       res.send(pics)
     } catch (error) {
@@ -29,6 +30,7 @@ export class PictureController extends BaseController {
 
   async getAll(req, res, next) {
     try {
+      req.body.creatorId = req.userInfo.id
       const pics = await pictureService.getAll(req.body)
       res.send(pics)
     } catch (error) {

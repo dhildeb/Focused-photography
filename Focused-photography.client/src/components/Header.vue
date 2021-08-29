@@ -55,7 +55,7 @@
            v-else
       >
       <div class="dropdown-menu">
-        <router-link class="dropdown-item " :to="{name: 'Lessons'}">
+        <router-link class="dropdown-item " :to="{name: 'Lessons'}" v-if="state.account.lessons > 1">
           MY LESSONS
         </router-link>
         <div class="dropdown-divider"></div>
@@ -109,7 +109,7 @@
           MEMBER LOGIN
         </span>
         <div v-else>
-          <router-link class=" dropdown-item" :to="{name: 'Lessons'}">
+          <router-link class=" dropdown-item" :to="{name: 'Lessons'}" v-if="state.account.lessons > 1">
             MY LESSONS
           </router-link>
           <div class="dropdown-divider"></div>
@@ -133,10 +133,13 @@ import { reactive } from '@vue/reactivity'
 import { AppState } from '../AppState'
 import { computed } from '@vue/runtime-core'
 import { AuthService } from '../services/AuthService'
+import { useRoute } from 'vue-router'
 
 export default {
   setup() {
+    const route = useRoute()
     const state = reactive({
+      lesson: computed(() => AppState.lessonName.indexOf(route.params.name) + 1),
       account: computed(() => AppState.account),
       view: computed(() => AppState.viewPort)
     })

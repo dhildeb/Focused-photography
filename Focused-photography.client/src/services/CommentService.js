@@ -6,7 +6,6 @@ class CommentService {
   async getCommentsByLesson(lesson) {
     try {
       const res = await api.get('api/comment/' + lesson)
-      console.log(res.data)
       AppState.comments = res.data
     } catch (error) {
       logger.log(error.message)
@@ -27,16 +26,17 @@ class CommentService {
       const res = await api.post('api/comment/' + commentData.lesson, commentData)
       AppState.comments.push(res.data)
     } catch (error) {
-      logger.log(error.message)
+      logger.log(error)
     }
   }
 
-  async deleteComment(req, res, next) {
+  async deleteComment(commentId) {
     try {
-      const comment = await commentService.deleteComment(req.params.commentId, req.userId.id)
-      res.send(comment)
+      const res = await api.delete('api/comment/' + commentId)
+      console.log(res.data)
+      AppState.comments.filter(c => c.id !== commentId)
     } catch (error) {
-      next(error)
+      logger.log(error)
     }
   }
 }
