@@ -1,5 +1,4 @@
 <template>
-  <h1>Lesson QA Component</h1>
   <p class="t-xxl city-font">
     Ask a question
   </p>

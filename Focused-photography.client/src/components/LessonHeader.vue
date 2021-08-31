@@ -1,5 +1,5 @@
 <template>
-  <header class="row bg-warm-gray text-center p-4">
+  <header class="row bg-warm-gray text-center mt-title p-4">
     <div class="col-md-2"></div>
     <div class="col-lg-1 col-md-2 col-3 border-right border-secondary">
       <router-link :to="{name: 'LessonDetails', params: {name: route.params.name, route: 'Home'}}">
@@ -45,6 +45,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.mt-title{
+  margin-top: 4rem;
+}
 </style>

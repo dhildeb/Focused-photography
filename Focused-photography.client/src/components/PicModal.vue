@@ -86,7 +86,7 @@ export default {
       async createComment(event) {
         state.commentData.body = event.target.body.value
         await commentService.createPicComment(state.commentData)
-        state.commentData = ''
+        state.commentData.body = ''
         state.newComment = false
         this.close()
       }

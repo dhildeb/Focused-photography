@@ -1,8 +1,8 @@
 <template>
-  <div class="container-fluid bg-white" v-if="state.account.lessons > state.lesson">
+  <div class="container-fluid bg-white" v-if="state.account.lessons >= state.lesson">
     <div class="row mt-5">
       <div class="col mx-5">
-        <p class="t-lg m-0">
+        <p class="t-lg city-font position-absolute m-0">
           {{ route.params.name }}
         </p>
       </div>

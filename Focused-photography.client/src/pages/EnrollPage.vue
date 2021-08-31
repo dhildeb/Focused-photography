@@ -83,9 +83,9 @@ export default {
     return {
       state,
       async buyNextLesson() {
-        console.log(state.account)
         try {
           await accountService.buyNextLesson(state.account.id)
+          console.log(state.account)
         } catch (error) {
           Notification.toast(error.message)
         }

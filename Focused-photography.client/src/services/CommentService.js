@@ -15,6 +15,7 @@ class CommentService {
   async createPicComment(commentData, pictureId) {
     try {
       const res = await api.post('api/comment/' + pictureId, commentData)
+      console.log(res.data)
       AppState.comments.push(res.data)
     } catch (error) {
       logger.log(error.message)

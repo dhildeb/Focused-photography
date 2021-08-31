@@ -55,10 +55,10 @@
            v-else
       >
       <div class="dropdown-menu">
-        <router-link class="dropdown-item " :to="{name: 'Lessons'}" v-if="state.account.lessons > 1">
+        <router-link class="dropdown-item " :to="{name: 'Lessons'}" v-if="state.account.lessons >= 1">
           MY LESSONS
         </router-link>
-        <div class="dropdown-divider"></div>
+        <div class="dropdown-divider" v-if="state.account.lessons >= 1"></div>
         <span class="dropdown-item " @click="logout">
           LOGOUT
         </span>
@@ -109,10 +109,10 @@
           MEMBER LOGIN
         </span>
         <div v-else>
-          <router-link class=" dropdown-item" :to="{name: 'Lessons'}" v-if="state.account.lessons > 1">
+          <router-link class=" dropdown-item" :to="{name: 'Lessons'}" v-if="state.account.lessons >= 1">
             MY LESSONS
           </router-link>
-          <div class="dropdown-divider"></div>
+          <div class="dropdown-divider" v-if="state.account.lessons >= 1"></div>
           <span class="dropdown-item" @click="logout">
             LOGOUT
           </span>

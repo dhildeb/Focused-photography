@@ -1,5 +1,4 @@
 <template>
-  <h1>Lesson Gallery Component</h1>
   <GalleryPic v-for="pic in state.pics" :key="pic.id" :pic="pic" />
   <form @submit.prevent="upload">
     <div class="col">

@@ -15,7 +15,9 @@
 
   <div class="container-fluid my-5 px-5 bg-white">
     <div class="row justify-content-center align-content-center text-center text-focus-dark pt-5">
-      <LessonsList v-for="list in state.list" :key="list" :list="list" />
+      <div class="col-4 pb-3" :title="list" v-for="list in state.list" :key="list">
+        <LessonsList :list="list" />
+      </div>
     </div>
   </div>
 </template>
