@@ -33,9 +33,8 @@ class CommentService {
 
   async deleteComment(commentId) {
     try {
-      const res = await api.delete('api/comment/' + commentId)
-      console.log(res.data)
-      AppState.comments.filter(c => c.id !== commentId)
+      await api.delete('api/comment/' + commentId)
+      AppState.comments = AppState.comments.filter(c => c.id !== commentId)
     } catch (error) {
       logger.log(error)
     }

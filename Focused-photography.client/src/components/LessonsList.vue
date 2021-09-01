@@ -4,7 +4,7 @@
       <p class="t-lg m-0">
         Month {{ state.month + 1 }}
       </p>
-      <span v-if="state.account.lessons >= state.month">{{ list }}</span>
+      <span>{{ list }}</span>
     </div>
 
     <div class="col p-0" v-if="state.account.lessons >= state.month + 1">

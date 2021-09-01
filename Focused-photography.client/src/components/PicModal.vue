@@ -22,16 +22,17 @@
               </div>
               <div class="row p-5">
                 <!-- comments  -->
-                <div v-for="comment in state.comments" :key="comment.id" class="col-12 border-top pb-2">
+                <div v-for="comment in state.comments" :key="comment.id" class="col-12 border-top d-flex flex-column pb-2">
+                  <i class="mdi mdi-delete text-danger click align-self-end position-absolute zoom" title="Delete comment" @click="deleteComment(comment.id)" v-if="comment.creatorId === state.account.id"></i>
+                  <img class="profile-icon fit align-self-start my-3" :src="comment.creator.picture" alt="profile picture">
                   <p>{{ comment.body }}</p>
-                  <img class="profile-icon" :src="comment.creator.picture" alt="profile picture">
                 </div>
                 <!-- new comment -->
                 <button class="col-12 new-comment rounded-xl border border-secondary w-100 p-4" @click="state.newComment = !state.newComment" v-if="!state.newComment">
                   New Comment...
                 </button>
-                <form class="form-group" @submit.prevent="createComment" v-if="state.newComment">
-                  <textarea v-model="state.body"
+                <form class="form-group" @submit.prevent="createComment" v-else>
+                  <textarea v-model="state.commentData.body"
                             id="body"
                             class="input-group rounded-xl p-1"
                             rows="3"
@@ -39,7 +40,7 @@
                             type="text"
                             placeholder="QUESTIONS OR COMMENTS"
                   ></textarea>
-                  <button class="btn btn-block btn-info" type="submit" v-if="state.body">
+                  <button class="btn btn-block btn-info" type="submit" v-if="state.commentData.body">
                     submit
                   </button>
                 </form>
@@ -83,12 +84,14 @@ export default {
       close() {
         $('#picModal').modal('toggle')
       },
-      async createComment(event) {
-        state.commentData.body = event.target.body.value
+      async createComment() {
         await commentService.createPicComment(state.commentData)
         state.commentData.body = ''
-        state.newComment = false
         this.close()
+        state.newComment = false
+      },
+      async deleteComment(id) {
+        await commentService.deleteComment(id)
       }
     }
   }
@@ -112,5 +115,8 @@ textarea {
 }
 textarea:focus{
   border-color: var(--yellow)
+}
+.fit{
+  object-fit: contain;
 }
 </style>
