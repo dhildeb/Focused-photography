@@ -13,7 +13,7 @@ class PictureSercive {
   }
 
   async getOne(id) {
-    const pic = await dbContext.Picture.findById(id)
+    const pic = await dbContext.Picture.findById(id).populate('creator')
     return pic
   }
 

@@ -16,6 +16,8 @@ class CommentService {
     try {
       const res = await api.post('api/comment/' + pictureId, commentData)
       console.log(res.data)
+      // FIXME vv line 20 should not be needed, fix populate on backend
+      res.data.creator = { picture: 'https://source.unsplash.com/random' }
       AppState.comments.push(res.data)
     } catch (error) {
       logger.log(error.message)

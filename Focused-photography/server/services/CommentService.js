@@ -28,14 +28,14 @@ class CommentService {
   async createPicComment(commentData, pictureId) {
     // FIXME populate doesnt work nor does conditional
     const picture = await pictureService.getOne(pictureId)
-    const creator = await dbContext.Account.findOne({
-      _id: commentData.creatorId
-    })
-    if (picture.creator.id !== commentData.creatorId && !creator.admin) {
+    // const creator = await dbContext.Account.findOne({
+    //   _id: commentData.creatorId
+    // })
+    if (picture.creatorId !== commentData.creatorId) {
       throw new BadRequest('You do not have access to this lesson, please purchase a plan')
     }
     const comment = await dbContext.Comment.create({ body: commentData, pictureId: pictureId })
-    await comment.populate('creator').execPopulate()
+    await comment.populate('creator')
     return comment
   }
 

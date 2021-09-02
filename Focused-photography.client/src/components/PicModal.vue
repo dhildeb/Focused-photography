@@ -28,10 +28,11 @@
                   <p>{{ comment.body }}</p>
                 </div>
                 <!-- new comment -->
-                <button class="col-12 new-comment rounded-xl border border-secondary w-100 p-4" @click="state.newComment = !state.newComment" v-if="!state.newComment">
+                <button class="col-12 new-comment rounded-xl border border-secondary w-100 p-4" @click="state.newComment = !state.newComment" v-if="!state.newComment && state.pic.creatorId === state.account.id">
                   New Comment...
                 </button>
-                <form class="form-group" @submit.prevent="createComment" v-else>
+                <!-- TODO add admin -->
+                <form class="form-group" @submit.prevent="createComment" v-if="state.newComment && state.pic.creatorId === state.account.id">
                   <textarea v-model="state.commentData.body"
                             id="body"
                             class="input-group rounded-xl p-1"
