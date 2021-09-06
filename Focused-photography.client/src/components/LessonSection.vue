@@ -1,8 +1,8 @@
 <template>
   <div class="col-4 mb-5">
-    <div class="rounded-xl bg-cool-gray text-white mb-3">
-      <p class="t-lg">
-        Learn
+    <div class="rounded-xl bg-cool-gray d-flex justify-content-center text-white title-height mb-3">
+      <p class="city-font t-xxxl position-absolute p-0">
+        learn
       </p>
     </div>
     <a class="">
@@ -36,5 +36,11 @@ export default {
 <style scoped>
 .rounded-xl{
   border-radius: 1rem;
+}
+.title-height{
+  height: 50px;
+}
+.t-xxxl{
+  font-size: 34pt;
 }
 </style>

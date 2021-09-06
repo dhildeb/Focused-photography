@@ -49,6 +49,7 @@
               <div class="row justify-content-between align-content-end bottom w-100">
                 <div class="text-center align-self-end">
                 </div>
+                <!-- TODO add delete vvv -->
                 <!-- <i class="mdi mdi-delete text-danger click align-self-end zoom" title="Delete pic" v-if="state.pic.creatorId === state.account.id"></i> -->
               </div>
             </div>

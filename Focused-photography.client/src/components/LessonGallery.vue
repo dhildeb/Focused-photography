@@ -1,5 +1,7 @@
 <template>
-  <GalleryPic v-for="pic in state.pics" :key="pic.id" :pic="pic" />
+  <div class="row">
+    <GalleryPic v-for="pic in state.pics" :key="pic.id" :pic="pic" />
+  </div>
   <form @submit.prevent="upload">
     <div class="col">
       <div class="form-group">
