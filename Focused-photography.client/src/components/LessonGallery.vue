@@ -2,35 +2,43 @@
   <div class="row">
     <GalleryPic v-for="pic in state.pics" :key="pic.id" :pic="pic" />
   </div>
-  <form @submit.prevent="upload">
-    <div class="col">
+  <form @submit.prevent="upload" class="row p-5">
+    <div class="col-6 mt-3">
       <div class="form-group">
-        <input type="text"
-               class="form-control"
-               name=""
-               id="title"
-               aria-describedby="helpId"
-               placeholder="new title..."
-               v-model="state.newPost.body"
-               required
-        >
+        <textarea
+          class="form-control"
+          name="comment"
+          id="title"
+          rows="8"
+          aria-describedby="helpId"
+          placeholder="SHARE YOUR COMMENTS, QUESTIONS, OR INSIGHTS REGARDING THIS ASSIGNMENT"
+          v-model="state.newPost.body"
+          required
+        ></textarea>
       </div>
+    </div>
+    <div class="col-6 d-flex justify-content-between mt-3">
+      <div class="form-group">
+        <label for="pic">DRAG AND DROP IMAGES HERE OR <b>SELECT FROM YOUR COMPUTER</b>
+          <input type="file"
+                 name="pic"
+                 ref="fileInput"
+                 accept="image/*"
+                 @change="filePicked"
+          >
+        </label>
+      </div>
+      <button v-if="state.selected" class="btn btn-danger" type="submit">
+        Upload
+      </button>
     </div>
     <div class="col">
       <div v-if="state.image">
         <img :src="state.imageUrl" alt="">
       </div>
       <div v-else>
-        <img id="img" class="selected preview" :src="state.img" alt="">
+        <img id="img" class="selected preview img-fluid" :src="state.img" alt="">
       </div>
-    </div>
-    <div class="d-flex justify-content-between mt-3">
-      <div class="form-group">
-        <input type="file" ref="fileInput" accept="image/*" @change="filePicked">
-      </div>
-      <button v-if="state.selected" class="btn btn-danger" type="submit">
-        Upload
-      </button>
     </div>
   </form>
 </template>
@@ -92,6 +100,35 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+input[type=file]{
+  cursor: pointer;
+  opacity: 0;
+  width: inherit;
+  height: inherit;
+  position: absolute;
+}
+label{
+  padding: 50px;
+  border: black 1px solid;
+}
+::-webkit-input-placeholder {
+  text-align: center;
+  padding-top: 70px;
+}
 
+:-moz-placeholder { /* Firefox 18- */
+  text-align: center;
+  padding: 50%;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  text-align: center;
+  padding: 50%;
+}
+
+:-ms-input-placeholder {
+  text-align: center;
+  padding: 50%;
+}
 </style>

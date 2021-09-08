@@ -4,10 +4,13 @@
       <div class="modal-content">
         <div class="modal-body">
           <div class="container">
+            <div class="row justify-content-start">
+              <i class="mdi mdi-delete text-danger click position-absolute zoom" title="Delete pic" v-if="state.pic.creatorId === state.account.id" @click="deletePic"></i>
+            </div>
             <div class="row justify-content-end">
               <i class="mdi mdi-close text-danger click zoom position-absolute" title="Close" data-dismiss="modal" aria-label="Close"></i>
             </div>
-            <div class="row pt-3">
+            <div class="row pt-5">
               <img class="col-md-6 col-12 img-fluid" :src="state.pic.picture" :alt="state.pic.name">
               <div class="col flex-grow-1 ml-5 p-3">
                 <small>
@@ -49,8 +52,6 @@
               <div class="row justify-content-between align-content-end bottom w-100">
                 <div class="text-center align-self-end">
                 </div>
-                <!-- TODO add delete vvv -->
-                <!-- <i class="mdi mdi-delete text-danger click align-self-end zoom" title="Delete pic" v-if="state.pic.creatorId === state.account.id"></i> -->
               </div>
             </div>
           </div>
@@ -67,6 +68,7 @@ import { computed } from '@vue/runtime-core'
 import { AppState } from '../AppState'
 import { commentService } from '../services/CommentService'
 import { useRoute } from 'vue-router'
+import { pictureservice } from '../services/PictureService'
 export default {
   setup() {
     const route = useRoute()
@@ -94,6 +96,10 @@ export default {
       },
       async deleteComment(id) {
         await commentService.deleteComment(id)
+      },
+      async deletePic() {
+        await pictureservice.deletePic(state.pic.id)
+        this.close()
       }
     }
   }
