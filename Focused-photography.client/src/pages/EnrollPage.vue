@@ -53,7 +53,7 @@
         </div>
       </div>
     </div>
-
+    {{ state.info }}
     <div class="row p-5">
       <div class="col-2"></div>
       <button class="col-2 btn bg-yellow text-white p-1 rounded-xl">
@@ -74,14 +74,18 @@ import { accountService } from '../services/AccountService'
 import Notification from '../utils/Notification'
 import { computed } from '@vue/runtime-core'
 import { AppState } from '../AppState'
+import { useRoute } from 'vue-router'
 export default {
   name: 'Enroll',
   setup() {
+    const route = useRoute()
     const state = reactive({
-      account: computed(() => AppState.account)
+      account: computed(() => AppState.account),
+      info: computed(() => AppState.registerInfo)
     })
     return {
       state,
+      route,
       async buyNextLesson() {
         try {
           await accountService.buyNextLesson(state.account.id)

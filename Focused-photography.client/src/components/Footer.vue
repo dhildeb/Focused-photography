@@ -11,16 +11,16 @@
 
     <div class="row justify-content-center align-content-center mb-5">
       <div class="col-2 align-self-center p-0">
-        <input type="text" class="form-control rounded-xl" placeholder="First name">
+        <input v-model="state.info.firstName" type="text" class="form-control rounded-xl" placeholder="First name">
       </div>
       <div class="col-2 align-self-center p-1">
-        <input type="text" class="form-control rounded-xl" placeholder="Last name">
+        <input v-bind="state.info.lastName" type="text" class="form-control rounded-xl" placeholder="Last name">
       </div>
       <div class="col-2 align-self-center p-0">
-        <input type="text" class="form-control rounded-xl" placeholder="Email Address">
+        <input v-bind="state.info.email" type="text" class="form-control rounded-xl" placeholder="Email Address">
       </div>
       <div class="col-2">
-        <button class="btn rounded-xl bg-teal">
+        <button class="btn rounded-xl bg-teal" @click="register()">
           Sign Me Up!
         </button>
       </div>
@@ -47,8 +47,24 @@
 </template>
 
 <script>
+import { reactive } from '@vue/reactivity'
+import { accountService } from '../services/AccountService'
 export default {
-
+  setup() {
+    const state = reactive({
+      info: {
+        firstName: '',
+        lastName: '',
+        email: ''
+      }
+    })
+    return {
+      state,
+      register() {
+        accountService.register(state.info)
+      }
+    }
+  }
 }
 </script>
 

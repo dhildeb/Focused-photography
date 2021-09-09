@@ -2,6 +2,7 @@ import { AppState } from '../AppState'
 import { logger } from '../utils/Logger'
 import { api } from './AxiosService'
 import Notification from '../utils/Notification'
+import { router } from '../router'
 
 class AccountService {
   async getAccount() {
@@ -35,6 +36,12 @@ class AccountService {
       Notification.toast('You dont have access to that lesson, Please Purchase a plan.')
       return true
     }
+  }
+
+  register(info) {
+    AppState.registerInfo = info
+    console.log(info)
+    router.push('enroll')
   }
 }
 export const accountService = new AccountService()
