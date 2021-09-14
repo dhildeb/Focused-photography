@@ -1,5 +1,5 @@
 import { dbContext } from '../db/DbContext'
-import { BadRequest } from '../utils/Errors'
+import { BadRequest, Forbidden, UnAuthorized } from '../utils/Errors'
 import { accountService } from './AccountService'
 import { pictureService } from './PictureService'
 
@@ -18,8 +18,12 @@ class CommentService {
     const account = await dbContext.Account.findOne({
       _id: commentData.creatorId
     })
+    const question = await dbContext.Comment.findOne({ _id: commentData.commentId })
     if (account.lessons < commentData.lesson) {
-      throw new BadRequest('You dont have access to this lesson, please purchase a plan')
+      throw new UnAuthorized('You dont have access to this lesson, please purchase a plan')
+    }
+    if (question.creatorId.id !== commentData.creatorId && !account.admin) {
+      throw new Forbidden('You cannot comment on someone elses question.')
     }
     const comment = await dbContext.Comment.create(commentData)
     return comment
@@ -31,8 +35,8 @@ class CommentService {
     // const creator = await dbContext.Account.findOne({
     //   _id: commentData.creatorId
     // })
-    if (picture.creatorId !== commentData.creatorId) {
-      throw new BadRequest('You do not have access to this lesson, please purchase a plan')
+    if (picture.creatorId.id !== commentData.creatorId) {
+      throw new UnAuthorized('You do not have access to this lesson, please purchase a plan')
     }
     const comment = await dbContext.Comment.create({ body: commentData, pictureId: pictureId })
     await comment.populate('creator')

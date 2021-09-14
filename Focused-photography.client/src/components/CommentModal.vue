@@ -18,8 +18,7 @@
             <img class="profile-icon" :src="comment.creator.picture" alt="profile picture">
           </div>
           <form class="form-group mt-5" @submit.prevent="createComment">
-            <input id="body" class="input-group" type="text" placeholder="Question or Comment">
-            {{ state.commentData.body }}
+            <input id="body" class="input-group" type="text" placeholder="Question or Comment" v-model="state.commentData.body">
             <button class="btn btn-info"
                     type="submit"
             >
@@ -47,7 +46,6 @@ export default {
       account: computed(() => AppState.account),
       comments: computed(() => AppState.comments.filter(c => c.commentId === state.activeComment.id)),
       commentData: {
-        commentId: computed(() => AppState.activeComment.id),
         lesson: AppState.lessonName.indexOf(route.params.name) + 1
       }
     })
@@ -56,8 +54,8 @@ export default {
       close() {
         $('#commentModal').modal('toggle')
       },
-      async createComment(event) {
-        state.commentData.body = event.target.body.value
+      async createComment() {
+        state.commentData.commentId = state.activeComment.id
         await commentService.createComment(state.commentData)
         state.commentData = ''
         state.newComment = false

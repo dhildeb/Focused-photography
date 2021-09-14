@@ -22,3 +22,9 @@ CommentSchema.virtual('picture', {
   foreignField: '_id',
   justOne: true
 })
+CommentSchema.virtual('Comment', {
+  localField: 'commentId',
+  ref: 'Comment',
+  foreignField: '_id',
+  justOne: true
+})

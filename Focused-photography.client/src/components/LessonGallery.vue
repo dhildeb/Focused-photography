@@ -19,13 +19,14 @@
     </div>
     <div class="col-6 d-flex justify-content-between mt-3">
       <div class="form-group">
+        <input type="file"
+               name="pic"
+               ref="fileInput"
+               accept="image/*"
+               class="input-box"
+               @change="filePicked"
+        >
         <label for="pic">DRAG AND DROP IMAGES HERE OR <b>SELECT FROM YOUR COMPUTER</b>
-          <input type="file"
-                 name="pic"
-                 ref="fileInput"
-                 accept="image/*"
-                 @change="filePicked"
-          >
         </label>
       </div>
       <button v-if="state.selected" class="btn btn-danger" type="submit">
@@ -107,6 +108,8 @@ input[type=file]{
   width: inherit;
   height: inherit;
   position: absolute;
+  height: 14vw;
+  width: 42vw;
 }
 label{
   padding: 50px;

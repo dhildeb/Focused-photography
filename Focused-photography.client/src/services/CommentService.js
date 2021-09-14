@@ -1,5 +1,6 @@
 import { AppState } from '../AppState'
 import { logger } from '../utils/Logger'
+import Notification from '../utils/Notification'
 import { api } from './AxiosService'
 
 class CommentService {
@@ -8,7 +9,7 @@ class CommentService {
       const res = await api.get('api/comment/' + lesson)
       AppState.comments = res.data
     } catch (error) {
-      logger.log(error.message)
+      Notification.toast(error.message)
     }
   }
 
@@ -28,8 +29,9 @@ class CommentService {
     try {
       const res = await api.post('api/comment/' + commentData.lesson, commentData)
       AppState.comments.push(res.data)
-    } catch (error) {
-      logger.log(error)
+    } catch (e) {
+      // notification doesnt send actual message... TODO
+      Notification.toast(e)
     }
   }
 
