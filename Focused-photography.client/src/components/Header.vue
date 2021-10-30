@@ -39,6 +39,13 @@
         ENROLL
       </router-link>
     </div>
+    <!-- TODO delete -->
+    <div class="col text-center align-self-center">
+      <router-link :to="{name: 'Payment'}" class="">
+        PAY
+      </router-link>
+    </div>
+    <!-- ^^^^ -->
     <div class="col text-center align-self-center text-nowrap pr-5">
       <a class=" click" @click="login" v-if="!state.account.id">
         MEMBER LOGIN

@@ -37,6 +37,11 @@ const routes = [
     component: loadPage('AccountPage')
   },
   {
+    path: '/payment',
+    name: 'Payment',
+    component: loadPage('PaymentPage')
+  },
+  {
     path: '/lessons',
     name: 'Lessons',
     component: loadPage('LessonsPage'),

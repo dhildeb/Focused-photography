@@ -10,10 +10,12 @@
   "dependencies": {
     "@bcwdev/auth0provider-client": "0.0.7",
     "@mdi/font": "^5.9.55",
+    "@paypal/checkout-server-sdk": "^1.0.3",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "firebase": "^8.7.1",
     "jquery": "^3.6.0",
+    "paypal-rest-sdk": "^1.8.1",
     "popper.js": "^1.16.1",
     "socket.io-client": "^4.1.2",
     "sweetalert2": "^11.0.17",

@@ -63,9 +63,7 @@
   </div>
 
   <p>Purchase The Next Lesson</p>
-  <button class="btn btn-info" @click="buyNextLesson">
-    Buy Now
-  </button>
+  <PayPalButton />
 </template>
 
 <script>
@@ -85,15 +83,7 @@ export default {
     })
     return {
       state,
-      route,
-      async buyNextLesson() {
-        try {
-          await accountService.buyNextLesson(state.account.id)
-          console.log(state.account)
-        } catch (error) {
-          Notification.toast(error.message)
-        }
-      }
+      route
     }
   }
 }
